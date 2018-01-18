@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Folder config v. 1.0 >
+<Folder Name="UCHET">
+    <Items>
+        <Item Name="Type_Archine_E.type" />
+        <Item Name="Type_ArchiveUnit_E.type" />
+        <Item Name="Type_DA_E.type" />
+        <Item Name="Type_Date_Archive_T.type" />
+        <Item Name="Type_Date_Field_T.type" />
+        <Item Name="Type_IO_Field_E.type" />
+        <Item Name="Type_IO_Field_T.type" />
+        <Item Name="Type_JXNO4QOZ7DKE7POJX74TUDLKC4.type" />
+        <Item Name="Type_MA_E.type" />
+    </Items>
+</Folder>

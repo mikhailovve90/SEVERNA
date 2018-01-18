@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="IO_Field_E" Kind="Struct" UUID="7AB5436344887290706AF997EA868EAC">
+    <Fields>
+        <Field Name="IO_Field_Text" Type="STRING" UUID="B90D3F16483FEF789BB92298619FA881" ArraySize="52" />
+        <Field Name="IO_Field_Visible" Type="BOOL" UUID="2BFE5BAE46EDFDCB7306F8BFA97B1078" ArraySize="48" />
+        <Field Name="IO_Field_Button_Pos" Type="LREAL" UUID="F3F16E53491CF7D498D833A0545FE0C7" ArraySize="1" />
+    </Fields>
+</Type>

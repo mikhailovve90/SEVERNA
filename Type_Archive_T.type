@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="Archive_T" Kind="Struct" Comment="Элемент архива (массива) [0..N]" UUID="E9359679474D7BF0AA1A1396BA491071">
+    <Fields>
+        <Field Name="D" Type="DATE" UUID="E6B703B6402EFA060B16B8BFE003535A" ArraySize="1" Comment="Дата элемента архива (массива)" />
+        <Field Name="HA" Type="ADADABF04A7E0FA63A71E8947A87211C" UUID="FF1BBDC349DEBA6EF2CC7292E28AF2AE" ArraySize="1" Comment="Часовой архив на дату" />
+        <Field Name="DA" Type="439B78EE418E72E6056032AB61311DB7" UUID="419A15804E5BF6B171E8B99B36BF1971" ArraySize="1" Comment="Суточный архив на дату" />
+        <Field Name="MA" Type="EF7812D844EF4D185B74F38FC2CA81DB" UUID="8E80CF6A44E957443C7CFA89A78A0037" ArraySize="1" Comment="Месячный архив на дату" />
+        <Field Name="QA" Type="7CE2FD3A415268E1362557BC86BF24AB" UUID="1387B50842D4EBAF79706BBCA2C8CF9E" ArraySize="1" Comment="Месячный архив на дату" />
+        <Field Name="YA" Type="240110454AE38AA9D08E77A0AD2C42DB" UUID="87EBEECC48A538E91472D5B602358622" ArraySize="1" />
+    </Fields>
+</Type>

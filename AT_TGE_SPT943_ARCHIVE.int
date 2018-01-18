@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="SPT943_ARCHIVE" Kind="APPLICATION.LUA" Args="" Comment="" UUID="AE542C3643AAC768CFD15EAC1A399598">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="DB65A6D0437C00D0222520933DD2319E" Type="STRING" Usage="output" />
+        <Signal Name="@STATE" UUID="17E7FE844BFB4F403A300E8706052EBC" Type="STRING" Usage="output" />
+        <Signal Name="@COMMAND" UUID="F07649574D17530DAE3C9F842124FE1D" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="5D2B87AB44039686766A29B722A46D51" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="87A71D4B4FB27A73D3951BAFA337556D" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="981AE36D4853D773B6D8318F546C5B0A" Type="STRING" Usage="output" />
+        <Signal Name="@EVENT" UUID="276446264EBFFE0F663D339AFFB3F233" Type="STRING" />
+        <Signal Name="@RESERVED" UUID="102B810649FEE074B6DC0A9945B92748" Type="BOOL" />
+        <Signal Name="@RESERVE" UUID="CDE5C2514501A8052E7DA9AF41701589" Type="BOOL" />
+        <Signal Name="@LICENSE" UUID="B604D1A849DB8D37FAE43BA7D8A1D9E8" Type="STRING" Usage="output" />
+        <Signal Name="@WINDOW" UUID="974D25E94081ED721A34C0B2668773AE" Type="TWINDOW" ArraySize="32" InitialValue="[(VISIBLE:=TRUE, WIDTH:=640, HEIGHT:=480)]" />
+        <Signal Name="@NODE_ROLE" UUID="AF3673874BEB31C67BF0BBA4209C845D" Type="INT" />
+        <Signal Name="@NODE_ERROR" UUID="1ED9E9CE4C9C76A5D8D570808740AAF2" Type="BOOL" />
+        <Signal Name="@NODE_PEER_ERROR" UUID="DD7C35EB419805A35E9AB2BDEA300170" Type="BOOL" />
+        <Signal Name="@FAILOVER_PRESENCE" UUID="AEF213024DEE71464BF30FAB57907CBB" Type="BOOL" />
+        <Signal Name="@FAILOVER_ERROR" UUID="A48A01FF4E10E6B41BBA15A6CDBB4FBE" Type="BOOL" />
+        <Signal Name="@FAILOVER_RESERVE" UUID="B75FD76242CDF0D062EAFF9BA6690051" Type="BOOL" />
+        <Signal Name="@FAILOVER_RESERVED" UUID="B6CC63C94798BACB7F2B6A89F8E1B9BD" Type="BOOL" />
+        <Signal Name="Heat" UUID="073D15B14286B34B42B3A391B8E4BFDE" Type="56DF1F18444525A2B255F79176E47B2B" ArraySize="2" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="DateSelect_GUI" UUID="048665344E9065572380C4ADFBA6420A" Type="DATE" Global="TRUE" />
+        <Signal Name="HourButtonPressed" UUID="905EDBBC48CA8169E43C9F968DE5582F" Type="BOOL" Global="TRUE" Comment="Выбор чтения часового архива из базы данных" />
+        <Signal Name="DateButtonPressed" UUID="E32E945E4687316A1C21EE81724EACF9" Type="BOOL" Global="TRUE" Comment="Выбор чтения суточного архива из базы данных" />
+        <Signal Name="MonthButtonPressed" UUID="CDC81A9A474D306B3E730CA7A3901ED2" Type="BOOL" Global="TRUE" Comment="Выбор чтения месячного архива из базы данных" />
+        <Signal Name="QuarterButtonPressed" UUID="7995D7AE45E5D4D6D92B409E2E6AC5CD" Type="BOOL" Global="TRUE" Comment="Выбор чтения квартального архива из базы данных" />
+        <Signal Name="YearButtonPressed" UUID="FDA3E4744EDE26D188CE37A32FBEA5A9" Type="BOOL" Global="TRUE" Comment="Выбор чтения годового архива из базы данных" />
+        <Signal Name="DateSelectorPressed" UUID="D38C79504F47E92C24FB0B949DDDCC7D" Type="BOOL" Global="TRUE" />
+        <Signal Name="HourButtonFontBold" UUID="8B2E3A3841546FB8C13A5D85B636D322" Type="BOOL" Global="TRUE" />
+        <Signal Name="MonthButtonFontBold" UUID="E09DC1CF4D803DA8C1220FA32C5B6A55" Type="BOOL" Global="TRUE" />
+        <Signal Name="DateButtonFontBold" UUID="EDBB40324543263DCFA1139A3F22FA61" Type="BOOL" Global="TRUE" />
+        <Signal Name="QuarterButtonFontBold" UUID="065AA8C74C4F5D7C43627EBA00556D23" Type="BOOL" Global="TRUE" />
+        <Signal Name="YearButtonFontBold" UUID="A4E34C3A4ECB0A0EF8119AA8EC9EB883" Type="BOOL" Global="TRUE" />
+        <Signal Name="Gas" UUID="A9779FB44C271450A7AF5285710A95A6" Type="56DF1F18444525A2B255F79176E47B2B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="WaterA1" UUID="862087D8430CA9B1A93AF5B842BE2961" Type="56DF1F18444525A2B255F79176E47B2B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="WaterA2" UUID="C7B8609D419370FF8B65F681E35A10B4" Type="56DF1F18444525A2B255F79176E47B2B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="WaterA3" UUID="A0DB097B450A8ABF001FCC95FA0E71F0" Type="56DF1F18444525A2B255F79176E47B2B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="WaterA4" UUID="B0AA16FD490AFE5A778A83ACAA6CFC64" Type="56DF1F18444525A2B255F79176E47B2B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="WaterObj1" UUID="3C19CCA84FF2820CD8A6618B06E2346B" Type="56DF1F18444525A2B255F79176E47B2B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="WaterObj2" UUID="33CE9D614BE48F7F9111639831A0FA4C" Type="56DF1F18444525A2B255F79176E47B2B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="WaterObj3" UUID="2DF476A145E5E0ABC81F8F9F7F7CFAAE" Type="56DF1F18444525A2B255F79176E47B2B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="WaterObj4" UUID="0A06638248B57484E4BA73B29048803F" Type="56DF1F18444525A2B255F79176E47B2B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="HourArchiveSelected" UUID="53A4D05B4ED40BBCB7970B8B7FFF4109" Type="BOOL" Global="TRUE" Comment="Выбор чтения часового архива из прибора" />
+        <Signal Name="DateArchiveSelected" UUID="5E1A2DF14877C05448C418BC6B42F738" Type="BOOL" Global="TRUE" Comment="Выбор чтения суточного архива из прибора" />
+        <Signal Name="MonthArchiveSelected" UUID="D929AD7E4BF3003E1CDE1B9E90B31DF8" Type="BOOL" Global="TRUE" Comment="Выбор чтения месячного архива из прибора" />
+        <Signal Name="StartDate" UUID="1509A7CD408132A09561E78233034B84" Type="DATE" Global="TRUE" />
+        <Signal Name="EndDate" UUID="4805A0AE460E6CBD90E311822AC23066" Type="DATE" Global="TRUE" />
+        <Signal Name="WarningMessage" UUID="3F2C6C1D44EF74ADDE2BD98DDACC373C" Type="STRING" Global="TRUE" />
+        <Signal Name="WarningMessageVisible" UUID="43256A2A48155A777CB4D6B7E27B1587" Type="BOOL" Global="TRUE" />
+        <Signal Name="Date" UUID="AFCDB2334D8C780550655894C607E777" Type="A2D7BE0848BB8A6A0F5371AEA432CE46" Global="TRUE" />
+        <Signal Name="KPD" UUID="A110E2A04496DD83411354853989A8D7" Type="FCBD3F6748C39D59804062BE1722A76B" OptionallyConnected="TRUE" Global="TRUE" />
+        <Signal Name="InputDateSelector" UUID="6C32F9C947D7E58534FA6983A5B631C6" Type="DATE" Global="TRUE" />
+        <Signal Name="Header_Text" UUID="D766609A49A794A1F5C79691841E2337" Type="STRING" Global="TRUE" />
+        <Signal Name="ReportGazChanged" UUID="83036B1647D2217B183F9EA9E415571A" Type="BOOL" Global="TRUE" />
+        <Signal Name="ReportGazIndex" UUID="C58A31E04012C869AF05F18B66AD9A2B" Type="INT" Global="TRUE" />
+        <Signal Name="ReportsGas" UUID="70D84B064453E0920568D79A0ADE33C7" Type="BOOL" ArraySize="8" Global="TRUE" />
+    </InterfaceList>
+</SubAppType>

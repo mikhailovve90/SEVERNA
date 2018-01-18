@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="Archine_E" Kind="Struct" UUID="7CB09F7B45380FA297D3AA9A2256DB41">
+    <Fields>
+        <Field Name="Archive_E" Type="E58CABD042D1034424FB8B9D29E6A329" UUID="2D9AFAFD460FEB71EAF2EFAA1E4DE9AF" ArraySize="92" />
+    </Fields>
+</Type>

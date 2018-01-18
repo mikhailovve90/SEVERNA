@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="Date_Archive_T" Kind="Struct" UUID="439B78EE418E72E6056032AB61311DB7">
+    <Fields>
+        <Field Name="Q" Type="REAL" UUID="7E73175E4011FD62D506BA87F47D0BD0" ArraySize="31" Comment="Приращение значения тепловой энергии за сутки" />
+        <Field Name="Gas" Type="REAL" UUID="A7A2B446444902CDF21EE2BF12C76205" ArraySize="31" Comment="Приращение значения тепловой энергии за " />
+        <Field Name="Water_A1" Type="REAL" UUID="1053C6934EC9C661DE4440B0634DB97C" ArraySize="31" Comment="Приращение значения добычи воды артскважиной 1 за сутки" />
+        <Field Name="Water_A2" Type="REAL" UUID="EC57CDCF4C6DEAF1F7058CBE60BECE7B" ArraySize="31" Comment="Приращение значения добычи воды артскважиной 2 за сутки" />
+        <Field Name="Water_A3" Type="REAL" UUID="69BE4FB94718256391AEBD9C85197460" ArraySize="31" Comment="Приращение значения добычи воды артскважиной 3 за сутки" />
+        <Field Name="Water_A4" Type="REAL" UUID="41E24E724C0EC336BC182D89FDC540C5" ArraySize="31" Comment="Приращение значения добычи воды артскважиной 4 за сутки" />
+        <Field Name="Water_Obj1" Type="REAL" UUID="15788AE04A136F90A76555875D887B79" ArraySize="31" Comment="Приращение значения потребления воды воды объектом 1 за сутки " />
+        <Field Name="Water_Obj2" Type="REAL" UUID="1EBDD3A34DE42DDA4226B7ADF64D3EA3" ArraySize="31" Comment="Приращение значения потребления воды воды объектом 2 за сутки" />
+        <Field Name="Water_Obj3" Type="REAL" UUID="79BE94BC4636EC5D3DA68A8D25FA2FC4" ArraySize="31" Comment="Приращение значения потребления воды воды объектом 3 за сутки" />
+        <Field Name="Water_Obj4" Type="REAL" UUID="C377F95043D97E9107DF5690FD7088B0" ArraySize="31" Comment="Приращение значения потребления воды воды объектом 4 за сутки" />
+    </Fields>
+</Type>

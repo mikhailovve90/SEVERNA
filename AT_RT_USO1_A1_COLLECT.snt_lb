@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.Sonet.LOCALBUS v. 1.0 >
+<Configuration>
+    <Device CyclePeriod="50000" ConfigUpdatePeriod="3000000">
+        <Slot Address="1" ModuleType="33" />
+        <Slot Address="4" ModuleType="62" />
+        <Slot Address="8" ModuleType="22" />
+    </Device>
+    <Crossconnect>
+        <Connection ItemName="USO1_A1_FAULT.Disabled" Device="" Slot="info" Channel="disable" UUID="CFD6E50D49742B063775C784F39DBF1D.D0A09A3F4993D4DB726208A1F2676C31" />
+        <Connection ItemName="USO1_A1_FAULT.CPU" Device="" Slot="info" Channel="status" UUID="CFD6E50D49742B063775C784F39DBF1D.4B738447470758002E235D973A7CEECE" />
+        <Connection ItemName="USO1_A1_FAULT.Slot3" Device="" Slot="1" Channel="status" UUID="CFD6E50D49742B063775C784F39DBF1D.6B79064D4E8062F8371CE4A1F576D6FA" />
+        <Connection ItemName="USO1_A1_FAULT.Slot6" Device="" Slot="4" Channel="status" UUID="CFD6E50D49742B063775C784F39DBF1D.75495AA54DE464AFB4DDFCAFD0B4F31C" />
+        <Connection ItemName="USO1_A1_6.i1" Device="" Slot="4" Channel="1" UUID="E2AE5C764968A4CD8F5AF399C0848D78.C6DC2DB1485DA5CE98F7F4910F2AB928" />
+        <Connection ItemName="USO1_A1_6.i1_status" Device="" Slot="4" Channel="1.status" UUID="E2AE5C764968A4CD8F5AF399C0848D78.317BF8DF45AEFDE7D61E4D8E5A3D9663" />
+        <Connection ItemName="USO1_A1_6.i2" Device="" Slot="4" Channel="2" UUID="E2AE5C764968A4CD8F5AF399C0848D78.DE4EE657405539E84FA596BF22707AC3" />
+        <Connection ItemName="USO1_A1_6.i2_status" Device="" Slot="4" Channel="2.status" UUID="E2AE5C764968A4CD8F5AF399C0848D78.3D94350047106E9FB6AA45B3BC6A056E" />
+        <Connection ItemName="USO1_A1_6.i3" Device="" Slot="4" Channel="3" UUID="E2AE5C764968A4CD8F5AF399C0848D78.F86003C3420AF0CDB9284A9701E25322" />
+        <Connection ItemName="USO1_A1_6.i3_status" Device="" Slot="4" Channel="3.status" UUID="E2AE5C764968A4CD8F5AF399C0848D78.F510E4D345E6B7B9E2234D8A931E4196" />
+        <Connection ItemName="USO1_A1_6.i4" Device="" Slot="4" Channel="4" UUID="E2AE5C764968A4CD8F5AF399C0848D78.A680F1614FC716449D8F31A503D292BC" />
+        <Connection ItemName="USO1_A1_6.i4_status" Device="" Slot="4" Channel="4.status" UUID="E2AE5C764968A4CD8F5AF399C0848D78.5943D25145096D46ADC37C8263CEA8F2" />
+        <Connection ItemName="USO1_A1_3.i1" Device="" Slot="1" Channel="1" UUID="9623FCF549E360BEE72437878DFE18CB.EDCB9E5941C9FA8F1F402F8E9F062CD1" />
+        <Connection ItemName="USO1_A1_3.i1_status" Device="" Slot="1" Channel="1.status" UUID="9623FCF549E360BEE72437878DFE18CB.917A15204860CC51D12CF29F8C90C73C" />
+        <Connection ItemName="USO1_A1_3.i2" Device="" Slot="1" Channel="2" UUID="9623FCF549E360BEE72437878DFE18CB.3B3362B044BE15EF05E941B19754AD62" />
+        <Connection ItemName="USO1_A1_3.i2_status" Device="" Slot="1" Channel="2.status" UUID="9623FCF549E360BEE72437878DFE18CB.63C6A1A14F83D1494437B9B68D0E7FE1" />
+        <Connection ItemName="USO1_A1_3.i3" Device="" Slot="1" Channel="3" UUID="9623FCF549E360BEE72437878DFE18CB.3A27A2C043D378D51716EEACA9973702" />
+        <Connection ItemName="USO1_A1_3.i3_status" Device="" Slot="1" Channel="3.status" UUID="9623FCF549E360BEE72437878DFE18CB.93AF141F45061E4D30FDDB9C41485E8D" />
+        <Connection ItemName="USO1_A1_9.o1" Device="" Slot="8" Channel="1" UUID="A971079C4C96AA5C28139EBB2A0C557B.F27BA13A4DC8804C2BD0A3AAD4D124E7" />
+        <Connection ItemName="USO1_A1_9.o1_status" Device="" Slot="8" Channel="1.status" UUID="A971079C4C96AA5C28139EBB2A0C557B.5059ACB94CC6D304B3148E969F6601D5" />
+    </Crossconnect>
+</Configuration>

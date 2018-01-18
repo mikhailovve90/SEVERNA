@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="KPD" Kind="Struct" UUID="FCBD3F6748C39D59804062BE1722A76B">
+    <Fields>
+        <Field Name="IO_Field_Text" Type="STRING" UUID="42BEB2EF46E9FFE543E0E5A45C0F4DF8" ArraySize="35" />
+        <Field Name="IO_Field_Visible" Type="BOOL" UUID="0A6B7D504D5491EB9F06DC822199219E" ArraySize="31" />
+        <Field Name="IO_Field_Button_Pos" Type="LREAL" UUID="590811224E5E2D1530F887AB48A6AD87" ArraySize="1" />
+    </Fields>
+</Type>

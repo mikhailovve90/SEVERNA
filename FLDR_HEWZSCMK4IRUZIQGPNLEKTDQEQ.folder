@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Folder config v. 1.0 >
+<Folder Name="УСО 1">
+    <Items>
+		<Item Name="AT_RT_USO1_A1_APPCTRL.int" />
+	    <Item Name="FLDR_BIJF6GM6LVBUZKGTY7TRXJGQ5U.folder" />
+        <Item Name="FLDR_LXT4Y6DOFDFUBFAF2NJ2UXS3SE.folder" />
+        <Item Name="FLDR_VF4CIAU7YFRE7IWW3DTSVDINFE.folder" />
+    </Items>
+</Folder>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="Quarter_Archive_T" Kind="Struct" UUID="7CE2FD3A415268E1362557BC86BF24AB">
+    <Fields>
+        <Field Name="Q" Type="REAL" UUID="11E43143446F679B15A2FFB3964F381E" ArraySize="4" />
+        <Field Name="Gas" Type="REAL" UUID="36514C36400F47888BA268881F05B2A3" ArraySize="4" />
+        <Field Name="Water_A1" Type="REAL" UUID="C24E144043D7DFA0CB1644878B3FB8BD" ArraySize="4" />
+        <Field Name="Water_A2" Type="REAL" UUID="92C7A5BE4437B782DFF35492B9D25378" ArraySize="4" />
+        <Field Name="Water_A3" Type="REAL" UUID="7B29D55042925EE76FFE5089AA42CB17" ArraySize="4" />
+        <Field Name="Water_A4" Type="REAL" UUID="B86C9F164E0A233B7FAD719ADF952742" ArraySize="4" />
+        <Field Name="Water_Obj1" Type="REAL" UUID="805101294BE9607C82C2EB8D4E16EFB6" ArraySize="4" />
+        <Field Name="Water_Obj2" Type="REAL" UUID="1BA02AF04CE5DD52975F0C84EE68C217" ArraySize="4" />
+        <Field Name="Water_Obj3" Type="REAL" UUID="F61698F346CFEC14850CFCACABB11A4C" ArraySize="4" />
+        <Field Name="Water_Obj4" Type="REAL" UUID="8D4CD36A45B08601EE8803805BB28BD2" ArraySize="4" />
+    </Fields>
+</Type>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Folder config v. 1.0 >
+<Folder Name="Типы приложений">
+    <Items>
+        <Item Name="AT_4B6IJVZ35H6EBF43WUFQPFC4ME.int" />
+        <Item Name="AT_5MPXKRT6AWBULDISDXX4UGNW4I.int" />
+        <Item Name="AT_64AD4O2KAWAUNPFXSVQX22N7VY.int" />
+        <Item Name="AT_6BSNB47CE2TEJKXMKOE2PX6SHY.int" />
+        <Item Name="AT_AH3JGGIAFUHURCGPPVY3BBIZ5Q.int" />
+        <Item Name="AT_ALGMHLTYW4REVCIPPV6I7USSFE.int" />
+        <Item Name="AT_CI4NHEY3PAMUNBK2BLDVERP7JI.int" />
+        <Item Name="AT_FSWMA3YWHKKUVD24ZARMSDCAHU.int" />
+        <Item Name="AT_KGR4LWO4GUPUTNJV3PHNG7L5MU.int" />
+        <Item Name="AT_M3DAMZ3FBTIU3NYAHWH3JOUCYA.int" />
+        <Item Name="AT_NIZW724TRAEEPM767E7CSQI64A.int" />
+        <Item Name="AT_NR_HIDDEN_PING.int" />
+        <Item Name="AT_O7QNYBRTL3WUTGF64S7TCUXNV4.int" />
+        <Item Name="AT_PUKOCL3G32EENFKERPO2OZTEGA.int" />
+        <Item Name="AT_QQ4QJFFF4YXE3MUHGH542BOIDI.int" />
+        <Item Name="AT_RCEJP5ZVZF2UDCQ5VJQU2WBADU.int" />
+        <Item Name="AT_S4GAGWNZRHCETGRE4GLDTIN4NE.int" />
+        <Item Name="Driver_SPABUS.int" />
+        <Item Name="FLDR_3PT5KSD2XY6EZD44JU2CYSLWJM.folder" />
+        <Item Name="FLDR_6IXW75VFYWCEXDXMCRVKJJPUTE.folder" />
+        <Item Name="FLDR_A4KUXK2D6GVUTOGEAD74WQZOOA.folder" />
+        <Item Name="FLDR_BRX6G5DYWK7ETNN6ZFBO2NCFUQ.folder" />
+        <Item Name="FLDR_CN3MIVN3B2UU5GWONBRT5T7J5Y.folder" />
+        <Item Name="FLDR_H5H5D3J7CH2ERN7YI5T7EBU32Q.folder" />
+        <Item Name="FLDR_HEWZSCMK4IRUZIQGPNLEKTDQEQ.folder" />
+        <Item Name="FLDR_JSVP7UZZT5LEZOLXWNKK5L7R7A.folder" />
+        <Item Name="FLDR_NZLMQYIM4V6ULPFQDUGEY52RMI.folder" />
+        <Item Name="FLDR_OU7EWOADG4LUXLLHHCOM3MH2CE.folder" />
+        <Item Name="FLDR_THZKGAAYMH2ULNTABNMDO3KTJM.folder" />
+        <Item Name="FLDR_WOKBAOQNHEVUBJJZK7YN5SPWZA.folder" />
+    </Items>
+</Folder>

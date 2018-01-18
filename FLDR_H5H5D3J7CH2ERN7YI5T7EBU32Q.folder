@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Folder config v. 1.0 >
+<Folder Name="АРМ">
+    <Items>
+        <Item Name="AT_GD2E5RZZEUQUJBX5LW2N5JFIF4.int" />
+        <Item Name="AT_NR_DIAGN_LANTAN_HIDDEN_PING.int" />
+        <Item Name="AT_QDH3B3UBZAREXKFACDFK6SFIFI.int" />
+        <Item Name="AT_RT_SeversCtrl.int" />
+        <Item Name="HMI.int" />
+        <Item Name="HMI_Init.int" />
+    </Items>
+</Folder>

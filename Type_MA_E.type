@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="MA_E" Kind="Struct" UUID="E3BB365B48CBA638A0B8C7A0AD3EB989">
+    <Fields>
+        <Field Name="Ea_Receive" Type="REAL" UUID="0F739E5B46375A23E559958DAE835751" ArraySize="12" />
+        <Field Name="Er_Receive" Type="REAL" UUID="646379A948676C52F9F191A11E9629A5" ArraySize="12" />
+        <Field Name="Pa_Receive" Type="REAL" UUID="5EC63ECE452A09EB75FABA9D483113E0" ArraySize="12" />
+        <Field Name="Ea_Return" Type="REAL" UUID="9C6ABC0345463E54AE9215A268C19F62" ArraySize="12" />
+        <Field Name="Er_Return" Type="REAL" UUID="C66130EA44FDF60B4F3B0AAA64B2F5F3" ArraySize="12" />
+        <Field Name="Pa_Return" Type="REAL" UUID="F8E2D7384556A7CEBFAC25A9AD52992B" ArraySize="12" />
+    </Fields>
+</Type>

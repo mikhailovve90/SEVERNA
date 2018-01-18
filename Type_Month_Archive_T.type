@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="Month_Archive_T" Kind="Struct" UUID="EF7812D844EF4D185B74F38FC2CA81DB">
+    <Fields>
+        <Field Name="Q" Type="REAL" UUID="46C76D7F41E5948DC63B38B2E2C18589" ArraySize="12" Comment="Приращение значения тепловой энергии за месяц" />
+        <Field Name="Gas" Type="REAL" UUID="B802CFEE458A1A97AA2178A230938EE1" ArraySize="12" Comment="Приращение значения газа за месяц" />
+        <Field Name="Water_A1" Type="REAL" UUID="1BC7BA674ABB8D9C6B08B18F23E42838" ArraySize="12" Comment="Приращение значения добычи воды артскважиной 1 за месяц" />
+        <Field Name="Water_A2" Type="REAL" UUID="9B91B7FB43E9414762447FAB589615C4" ArraySize="12" Comment="Приращение значения добычи воды артскважиной 2 за месяц" />
+        <Field Name="Water_A3" Type="REAL" UUID="F66C38D149B76CD919FEC3841DC2B648" ArraySize="12" Comment="Приращение значения добычи воды артскважиной 3 за месяц" />
+        <Field Name="Water_A4" Type="REAL" UUID="83136C0A472C58C4E8748CB5CA4DEDC1" ArraySize="12" Comment="Приращение значения добычи воды артскважиной 4 за месяц" />
+        <Field Name="Water_Obj1" Type="REAL" UUID="AF22C4524492E8859A7BDAA00C778EEB" ArraySize="12" Comment="Приращение значения потребления воды воды объектом 1 за месяц" />
+        <Field Name="Water_Obj2" Type="REAL" UUID="2492E4BA47594421D47157A68C3EA74E" ArraySize="12" Comment="Приращение значения потребления воды воды объектом 2 за месяц" />
+        <Field Name="Water_Obj3" Type="REAL" UUID="C7EE58254676E880ECCBA29ED1F24595" ArraySize="12" Comment="Приращение значения потребления воды воды объектом 3 за месяц" />
+        <Field Name="Water_Obj4" Type="REAL" UUID="EED93E0A45BD83B310ADBD9A7C52E876" ArraySize="12" Comment="Приращение значения потребления воды воды объектом 4 за месяц" />
+    </Fields>
+</Type>

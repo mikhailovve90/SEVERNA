@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="Date_Field_E" Kind="Struct" UUID="FEE7D4BE4AED4D8A7CE7808FCACD672A">
+    <Fields>
+        <Field Name="Field_Text" Type="STRING" UUID="2AAC64784526040ACDDC34AABE735D01" ArraySize="48" />
+        <Field Name="Field_Visible" Type="BOOL" UUID="91FE2CC84E96269441FA92BEC295C88E" ArraySize="48" />
+        <Field Name="Total_Text_Pos" Type="LREAL" UUID="3FDF54D84BBDACD88A932D904BF4717C" ArraySize="1" />
+    </Fields>
+</Type>

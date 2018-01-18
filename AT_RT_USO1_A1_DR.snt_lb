@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.Sonet.LOCALBUS v. 1.0 >
+<Configuration>
+    <Device CyclePeriod="50000" ConfigUpdatePeriod="3000000">
+        <Slot Address="1" ModuleType="33" />
+    </Device>
+    <Crossconnect>
+        <Connection ItemName="GInput1" Device="" Slot="1" Channel="2" UUID="AE3531CB406EA930FE7ACD92B6849D4B" />
+        <Connection ItemName="Test_Meandr_Disabled" Device="" Slot="info" Channel="disable" UUID="7514B1AD4C6F014881A0C589FFBD6E99" />
+    </Crossconnect>
+</Configuration>

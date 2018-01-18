@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="AI_Sonet" Kind="Struct" Comment="Входной аналоговый сигнал от контроллера Сонет" UUID="1279FFCB4568555046FF9199BC168CF5">
+    <Fields>
+        <Field Name="Value" Type="REAL" UUID="E635C3B9453F276DC41A76893CEB09BE" Comment="Текущее значение переменной" />
+        <Field Name="OldValue" Type="REAL" UUID="83ABF6A748633C70FAB784BBAA0ADF44" Comment="Последнее достоверное значение переменной" />
+        <Field Name="Comment" Type="STRING" UUID="A241471B4FCD5AE94392A0BCF98AD9C2" Comment="Описание переменной" />
+        <Field Name="Source" Type="STRING" UUID="373FA26E4A0E2F155FCF37A6E566F112" Comment="Источник события (описание оборудования)" />
+        <Field Name="repaireFlag" Type="BOOL" UUID="870C931E4050CE09CB2F5EA00D5CDC2A" Comment="Флаг вывода сигнала из опроса" />
+        <Field Name="reliabilityFlag" Type="BOOL" UUID="E280E99A45233EDA851DD0873E6A613A" Comment="Флаг достоверности сигнала" />
+        <Field Name="reliabilityField" Type="WORD" UUID="B9E862014C64D761DD0291B8E8E06067" Comment="код признака недостоверности" />
+        <Field Name="HH" Type="REAL" UUID="0B5E0A1B4D0D67E8818B049019454057" Comment="Граница верхнего аварийного уровня" />
+        <Field Name="HL" Type="REAL" UUID="0E62C9B64E3438F1423E2DA8965C5303" Comment="Граница верхнего предупредительного уровня" />
+        <Field Name="LH" Type="REAL" UUID="696AF0DA4B6EB94F775AD99E58D02FB2" Comment="Граница нижнего  предупредительного уровня" />
+        <Field Name="LL" Type="REAL" UUID="3894CD72410547E86991D7AF62FE78B0" Comment="Граница нижнего аварийного уровня" />
+    </Fields>
+</Type>

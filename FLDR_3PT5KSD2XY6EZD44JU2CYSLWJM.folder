@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Folder config v. 1.0 >
+<Folder Name="САУ ВОС">
+    <Items>
+        <Item Path="FLDR_ELVWDW4N33SE5LGKW2EVYXKTZI.folder" />
+        <Item Path="FLDR_LF7QAEH2YABUPLOMGXPHQOTCUM.folder" />
+        <Item Path="FLDR_QEIA4AE5I63UDKBHIPK4D2P4UE.folder" />
+    </Items>
+</Folder>

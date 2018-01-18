@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="DO_Sonet" Kind="Struct" Comment="Выходной дискретный сигнал в контроллер Сонет от оператора" UUID="B0EC194E441587DB3736B4B2E60AAD18">
+    <Fields>
+        <Field Name="Value" Type="BOOL" UUID="5D45B5D9474BC6EF8B0BC78C8A74EC73" Comment="Текущее значение обработанного сигнала" />
+        <Field Name="dt" Type="DT" UUID="1D457B12460CFECF3FC850B692C9AC0B" Comment="Время подачи последней команды" />
+        <Field Name="Comment" Type="STRING" UUID="8BFF72B149AC504F77F727AA0DD27A28" Comment="Текстовое описание сигнала " />
+        <Field Name="Txt_1" Type="STRING" UUID="58D66FBF483F30B4E72EC7B1D460281B" Comment="Текстовое описание значения 1" />
+        <Field Name="Txt_0" Type="STRING" UUID="98DDA5204E02B954BCBEC29649243BFA" Comment="Текстовое описание значения 0" />
+        <Field Name="Source" Type="STRING" UUID="44D5CCCE413E97CD3108F792B36621EB" Comment="Источник события (описание оборудования)" />
+        <Field Name="repaireFlag" Type="BOOL" UUID="57C8BA9A44F8C8866DC746BA4D082E98" Comment="Флаг вывода сигнала из обработки" />
+        <Field Name="reliabilityFlag" Type="BOOL" UUID="5F0BEAF1434D4C9AC2F42B98CEA69F56" Comment="Флаг достоверности сигнала" />
+        <Field Name="reliabilityField" Type="WORD" UUID="53D7B1714C3F58B3884D749FE1E36F18" Comment="код признака недостоверности" />
+        <Field Name="AlarmClass" Type="UINT" UUID="487FE23F4077AFF832CE6DB533711654" Comment="Класс события (аварии)" />
+        <Field Name="AlarmMsg" Type="STRING" UUID="6BD665764AAB26B831CB61BE94729950" Comment="Текст сообщения" />
+        <Field Name="Fix_Con" Type="BOOL" UUID="FCDAB6974A5A46DE5257C29758738BB2" Comment="Флаг фиксации выходного контакта" />
+    </Fields>
+</Type>
