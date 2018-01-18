@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Node v. 1.3 >
+<Node Name="USO1" Comment="Тестовый ПЛК" Disabled="TRUE" Address="192.168.1.10" NetworkTimeout="2000" PingInterval="300" RetryTimeout="100" AggregationInterval="20" LocalTimeout="1000" LocalPingInterval="300" LocalRetryTimeout="100" LocalAggregationInterval="10" UseSharedMem="FALSE" EventQueue="2000" StoreEventQueue="FALSE" StartState="Default" UUID="E758C7B3473DAB5B782E8889A8331882">
+    <InterfaceList>
+        <SubApp Name="App" Type="FFF9DEAE4C725AFE1BE5B7B5A6AB262E" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="84A406EA4C832C5D589599A9FBFE9327" />
+        <SubApp Name="Coll1" Type="23F2A8FE458E831C12B8B0BF815D972E" Disabled="FALSE" Args="" ExecTimeout="11000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="9C285C6F4DF9B5378AB18395C1E50727" />
+        <SubApp Name="TestMeandr" Type="C1134F554E44E7AC1D090FBA7AFD1AB5" Disabled="FALSE" Args="" ExecTimeout="12000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="8E6E6E1941DF4CADBBDF0CBEC5EE2B8C" />
+        <SubApp Name="USO1_A1_Data_Collect" Type="19336EB243421C76336806BFBDC30AF7" Disabled="FALSE" Args="" ExecTimeout="13000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="120DF82D4903AFEF79DA3AA9EB8597DB" />
+        <SubApp Name="USO1_A1_Data_Status" Type="C4D248C14CFCC40D35F50088A3EFAEB9" Disabled="FALSE" Args="" ExecTimeout="14000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="0617F03D4F97CD76BB5DCDA164D378FC" />
+        <SubApp Name="USO1_A1_Data_Process" Type="D469910149CC7C6AE4A78E8E7A077153" Disabled="FALSE" Args="" ExecTimeout="15000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="69C28DA042741A322928FC981F8C7727" />
+    </InterfaceList>
+</Node>

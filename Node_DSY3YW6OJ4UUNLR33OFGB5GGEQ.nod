@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Node v. 1.3 >
+<Node Name="SAUVOS_A1" Comment="САУ ВОС ПЛК А1" Disabled="TRUE" Address="192.168.1.50" NetworkTimeout="2000" PingInterval="300" RetryTimeout="100" AggregationInterval="20" LocalTimeout="1000" LocalPingInterval="300" LocalRetryTimeout="100" LocalAggregationInterval="10" UseSharedMem="FALSE" EventQueue="2000" StoreEventQueue="TRUE" StartState="Default" UUID="0AC2E2D747548A26CBAC52AFF45F18FE">
+    <InterfaceList>
+        <SubApp Name="SAUVOS_A1_Data_Collect" Type="E9E7CDD1412E56A9BE07CDA55E864B98" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="E7A0F74D44FE824AC7E9619EC523872D" />
+        <SubApp Name="SAUVOS_A1_Data_Status" Type="1AF128944AFC484FB144FA8AAD3E6D2E" Disabled="FALSE" Args="" ExecTimeout="14000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D7D63AE546E3CF48D419E38B1A384DF1" />
+        <SubApp Name="SAUVOS_A1_Data_Process" Type="6DCAE83048ADD9A2BCE46D9806A840D9" Disabled="FALSE" Args="" ExecTimeout="20000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="973E43EC46CA6D7424C4D1A28B23799B" />
+    </InterfaceList>
+</Node>

@@ -47,5 +47,12 @@
         <Field Name="NASOS_FLOK_VKL" Type="BOOL" UUID="7C5E738C4CD2D60CD9078A8E3BA7A41C" Comment="Насос флокулянта включен" />
         <Field Name="NASOS_FLOK_VIKL" Type="BOOL" UUID="03754D084C759CFBE9AC1FAC755CAFA2" Comment="Насос флокулянта выключен " />
         <Field Name="NASOS_FLOK_AVAR" Type="BOOL" UUID="8500C509422F4C05EE917D84F5C08EE5" Comment="Насос флокулянта авария" />
+        <Field Name="TEMPER_VKL_KLAPANA" Type="REAL" UUID="DC23E6614533268C0B3A33AC1E64CF34" Comment="Температура открытия клапана" />
+        <Field Name="TEMPERATURA" Type="REAL" UUID="49C4898246D76C544111C6868C48B3C6" Comment="Температура" />
+        <Field Name="RASH_CHAS" Type="REAL" UUID="A2556B854D33057448412A8EB19539B3" Comment="Расходы"/>
+        <Field Name="RASH_SUTK" Type="REAL" UUID="BE1045654C55C98C00409D83810BD5CF" Comment="Расходы"/>
+        <Field Name="RASH_MESC" Type="REAL" UUID="7DC9399A439E6B5B9B3B54B90461842F" Comment="Расходы"/>
+        <Field Name="RASH_TEKU" Type="REAL" UUID="6BF22C9B49D9F7FFEB7D69BFA09EBAC0" Comment="Расходы"/>
+        <Field Name="RASH_MAXC" Type="REAL" UUID="8EE5312A4AC8984B0C3EF7930B575C92" Comment="Расходы"/>
     </Fields>
 </Type>

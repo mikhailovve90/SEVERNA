@@ -12,11 +12,17 @@ local objects = {
 -- зависимости от содержания сигнала с устройства(см. карту адресов устройства)
 local signals = {	
     ["USTANOVKA_OBEZ_ST"] = {["Comment"]="Статус установки обеззараживания", ["eval"] = function(Name)
-                                                                                          if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."UST_OBEZ_VIKL"] = true
-                                                                                          elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."UST_OBEZ_VKL"] = true
-                                                                                          elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."UST_OBEZ_VIKL_TR"] = true
-                                                                                          elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."UST_OBEZ_VKL_TR"] = true
-                                                                                          elseif Core[Name[2]..Name[3]] == 4 then Core[Name[2].."UST_OBEZ_AVAR"] = true
+                                                                                          Core[Name[2].."UST_OBEZ_VKL"] = false
+                                                                                          Core[Name[2].."UST_OBEZ_VIKL_TR"] = false
+                                                                                          Core[Name[2].."UST_OBEZ_VKL_TR"] = false
+                                                                                          Core[Name[2].."UST_OBEZ_AVAR"] = false
+                                                                                          Core[Name[2].."UST_OBEZ_VIKL"] = false
+
+                                                                                          if Core[Name[1]..Name[3]] == 0 then Core[Name[2].."UST_OBEZ_VIKL"] = true
+                                                                                          elseif Core[Name[1]..Name[3]] == 1 then Core[Name[2].."UST_OBEZ_VKL"] = true
+                                                                                          elseif Core[Name[1]..Name[3]] == 2 then Core[Name[2].."UST_OBEZ_VIKL_TR"] = true
+                                                                                          elseif Core[Name[1]..Name[3]] == 3 then Core[Name[2].."UST_OBEZ_VKL_TR"] = true
+                                                                                          elseif Core[Name[1]..Name[3]] == 4 then Core[Name[2].."UST_OBEZ_AVAR"] = true
                                                                                           end
                                                                                         end },
     ["RASH_CHAS"] = {["Comment"]="Расход в час", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
@@ -25,33 +31,55 @@ local signals = {
     ["RASH_TEKU"] = {["Comment"]="Расход текущий", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
     ["RASH_MAXC"] = {["Comment"]="Расход максимальный в час", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
     ["TEMPERATURA"] = {["Comment"]="Температура воды", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
-    ["NASOS_KOAGUL_ST"] = {["Comment"]="Насос коагулянта", ["eval"] = function(Name) 
-                                                                        if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."NASOS_KOAGUL_VIKL"] = true
-                                                                        elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."NASOS_KOAGUL_VKL_AVTO"] = true
-                                                                        elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."NASOS_KOAGUL_VIKL_RUCH"] = true
-                                                                        elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."NASOS_KOAGUL_AVAR"] = true
+    ["NASOS_KOAGUL_ST"] = {["Comment"]="Насос коагулянта", ["eval"] = function(Name)
+                                                                        Core[Name[2].."NASOS_KOAGUL_VIKL"] = false
+                                                                        Core[Name[2].."NASOS_KOAGUL_VKL_AVTO"] = false
+                                                                        Core[Name[2].."NASOS_KOAGUL_VKL_RUCH"] = false
+                                                                        Core[Name[2].."NASOS_KOAGUL_AVAR"] = false
+
+                                                                        if Core[Name[1]..Name[3]] == 0 then Core[Name[2].."NASOS_KOAGUL_VIKL"] = true
+                                                                        elseif Core[Name[1]..Name[3]] == 1 then Core[Name[2].."NASOS_KOAGUL_VKL_AVTO"] = true
+                                                                        elseif Core[Name[1]..Name[3]] == 2 then Core[Name[2].."NASOS_KOAGUL_VKL_RUCH"] = true
+                                                                        elseif Core[Name[1]..Name[3]] == 3 then Core[Name[2].."NASOS_KOAGUL_AVAR"] = true
                                                                         end
                                                                       end },
     ["KOMPRESSOR_ST"] = {["Comment"]="Компрессор", ["eval"] = function(Name)
-                                                                if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."KOMPRESSOR_VIKL"] = true
-                                                                elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."KOMPRESSOR_VIKL_TR"] = true
-                                                                elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."KOMPRESSOR_VIKL_AV"] = true
-                                                                elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."KOMPRESSOR_VKL"] = true
-                                                                elseif Core[Name[2]..Name[3]] == 4 then Core[Name[2].."KOMPRESSOR_VKL_TR"] = true
+                                                                Core[Name[2].."KOMPRESSOR_VIKL_TR"] = false
+                                                                Core[Name[2].."KOMPRESSOR_VIKL_AV"] = false
+                                                                Core[Name[2].."KOMPRESSOR_VKL"] = false
+                                                                Core[Name[2].."KOMPRESSOR_VKL_TR"] = false
+                                                                Core[Name[2].."KOMPRESSOR_VIKL"] = false
+                                                                
+                                                                if Core[Name[1]..Name[3]] == 0 then Core[Name[2].."KOMPRESSOR_VIKL"] = true
+                                                                elseif Core[Name[1]..Name[3]] == 1 then Core[Name[2].."KOMPRESSOR_VIKL_TR"] = true
+                                                                elseif Core[Name[1]..Name[3]] == 2 then Core[Name[2].."KOMPRESSOR_VIKL_AV"] = true
+                                                                elseif Core[Name[1]..Name[3]] == 3 then Core[Name[2].."KOMPRESSOR_VKL"] = true
+                                                                elseif Core[Name[1]..Name[3]] == 4 then Core[Name[2].."KOMPRESSOR_VKL_TR"] = true
                                                                 end
                                                               end },
     ["NASOS_DOZ_FLOK_ST"] = {["Comment"]="Насос дозатор флокулянта", ["eval"] = function(Name)
-                                                                                  if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."NASOS_DOZ_FLOK_VIKL"] = true
-                                                                                  elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."NASOS_DOZ_FLOK_VKL_AVTO"] = true
-                                                                                  elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."NASOS_DOZ_FLOK_VKL_RUCH"] = true
-                                                                                  elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."NASOS_DOZ_FLOK_AVAR"] = true
+                                                                                  Core[Name[2].."NASOS_DOZ_FLOK_VKL_AVTO"] = false
+                                                                                  Core[Name[2].."NASOS_DOZ_FLOK_VKL_RUCH"] = false
+                                                                                  Core[Name[2].."NASOS_DOZ_FLOK_AVAR"] = false
+                                                                                  Core[Name[2].."NASOS_DOZ_FLOK_VIKL"] = false
+    
+                                                                                  if Core[Name[1]..Name[3]] == 0 then Core[Name[2].."NASOS_DOZ_FLOK_VIKL"] = true
+                                                                                  elseif Core[Name[1]..Name[3]] == 1 then Core[Name[2].."NASOS_DOZ_FLOK_VKL_AVTO"] = true
+                                                                                  elseif Core[Name[1]..Name[3]] == 2 then Core[Name[2].."NASOS_DOZ_FLOK_VKL_RUCH"] = true
+                                                                                  elseif Core[Name[1]..Name[3]] == 3 then Core[Name[2].."NASOS_DOZ_FLOK_AVAR"] = true
                                                                                   end
                                                                                 end },                                                              
     ["NASOS_VTOR_OSAD_ST"] = {["Comment"]="Напряжение в еденицах 0-65535", ["eval"] = function(Name)
-                                                                                        if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."NASOS_VTOR_OSAD_VIKL"] = true
-                                                                                        elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."NASOS_VTOR_OSAD_VKL_AVTO"] = true
-                                                                                        elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."NASOS_VTOR_OSAD_VIKL_RUCH"] = true
-                                                                                        elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."NASOS_VTOR_OSAD_AVAR"] = true
+                                                                                        Core[Name[2].."NASOS_VTOR_OSAD_VKL_AVTO"] = false
+                                                                                        Core[Name[2].."NASOS_VTOR_OSAD_VKL_RUCH"] = false
+                                                                                        Core[Name[2].."NASOS_VTOR_OSAD_AVAR"] = false
+                                                                                        Core[Name[2].."NASOS_VTOR_OSAD_VIKL"] = false
+    
+    
+                                                                                        if Core[Name[1]..Name[3]] == 0 then Core[Name[2].."NASOS_VTOR_OSAD_VIKL"] = true
+                                                                                        elseif Core[Name[1]..Name[3]] == 1 then Core[Name[2].."NASOS_VTOR_OSAD_VKL_AVTO"] = true
+                                                                                        elseif Core[Name[1]..Name[3]] == 2 then Core[Name[2].."NASOS_VTOR_OSAD_VKL_RUCH"] = true
+                                                                                        elseif Core[Name[1]..Name[3]] == 3 then Core[Name[2].."NASOS_VTOR_OSAD_AVAR"] = true
                                                                                         end
                                                                                       end },
     ["TEMPER_VKL_KLAPANA"] = {["Comment"]="ТОК в еденицах 0-65535", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end }     
