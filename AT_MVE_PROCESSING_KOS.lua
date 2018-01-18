@@ -4,35 +4,57 @@ require "./lua_lib/acs_data_lib"
 require "./lua_lib/ieee754"
 
 local objects = {
-  "KOS1.RAW_"
-  "KOS2.RAW_"
+  ["KOS1.RAW_"] = "KOS1.",
+  ["KOS2.RAW_"] = "KOS2."
 }
 
 -- Ключом этой таблицы являются имена сигналов, значениями: описание и функция eval, необходимая для обработки того или иного сигнала, разными способами, в
 -- зависимости от содержания сигнала с устройства(см. карту адресов устройства)
 local signals = {	
-    ["USTANOVKA_OBEZ_ST"] = {["Comment"]="Статус установки обеззараживания", ["eval"] = function(Name) Core[Name[2].."ADDR"] = Core[Name[1].."ADDR"] end },
-    ["RASH_CHAS"] = {["Comment"]="Аддитивная поправка канала измерения тока(умол.0.0)", ["eval"] = function(Name) Core[Name[2].."ADD_I"] = Core[Name[1].."ADD_I"] end },
-    ["RASH_SUTK"] = {["Comment"]="Аддитивная поправка канала измерения напряжения(умол.0.0)", ["eval"] = function(Name) Core[Name[2].."ADD_I"] = Core[Name[1].."ADD_U"] end },
-    ["RASH_MESC"] = {["Comment"]="Верхний предел тока для настраиваемого типа 0..9999А", ["eval"] = function(Name) Core[Name[2].."HH_I"] = Core[Name[1].."HH_I"] end },
-    ["RASH_TEKU"] = {["Comment"]="Верхний предел напряжения для настраиваемого типа 0..9999В", ["eval"] = function(Name) Core[Name[2].."HH_U"] = Core[Name[1].."HH_U"] end },
-    ["RASH_MAXC"] = {["Comment"]="Скорость обмена по модбас 1-5 : 1-9600, 2-19200, 3-38400, 4-57600, 5-115200", ["eval"] = function(Name) Core[Name[2].."PORT_SP"] = Core[Name[1].."PORT_SP"] end },
-    ["TEMPERATURA"] = {["Comment"]="Мультипликативная поправка по току", ["eval"] = function(Name) Core[Name[2].."MLT_I"] = Core[Name[1].."MLT_I"] end },
-    ["NASOS_KOAGUL_ST"] = {["Comment"]="Мультипликативная поправка по напряжению", ["eval"] = function(Name) Core[Name[2].."MLT_U"] = Core[Name[1].."MLT_U"] end },
-    ["KOMPRESSOR_ST"] = {["Comment"]="Уставка по току и напряжению", ["eval"] = function(Name) Core[Name[2].."UST_U_I"] = Core[Name[1].."UST_U_I"] end },
-    ["NASOS_DOZ_FLOK_ST"] = {["Comment"]="Регистр событий элим", ["eval"] = function(Name)
-                                                                  elim_events_bits = byte_to_bool(Core[Name[1].."EVENT"], 7)
-                                                                  Core[Name[2].."OGR_I"] = elim_events_bits[1]
-                                                                  Core[Name[2].."OGR_U"] = elim_events_bits[2]
-                                                                  Core[Name[2].."STANBY"] = elim_events_bits[3]
-                                                                  Core[Name[2].."OVERHEAT"] = elim_events_bits[6]
-                                                                  Core[Name[2].."OVERLOAD_I"] = elim_events_bits[7]
-                                                                  Core[Name[2].."OVERLOAD_U"] = elim_events_bits[8]                                                                        
-                                                                end },
-                                                                                                                                                 
-    ["NASOS_VTOR_OSAD_ST"] = {["Comment"]="Напряжение в еденицах 0-65535", ["eval"] = function(Name) Core[Name[2].."U"] = Core[Name[1].."ADD_U"] + ((Core[Name[1].."U"] * (Core[Name[1].."HH_U"]/10))/1023) * Core[Name[1].."MLT_U"]  end },
-    ["TEMPER_VKL_KLAPANA"] = {["Comment"]="ТОК в еденицах 0-65535", ["eval"] = function(Name) os.sleep(1) Core[Name[2].."I"] = Core[Name[1].."ADD_I"] + ((Core[Name[1].."I"] * (Core[Name[1].."HH_I"]/10))/1023) * Core[Name[1].."MLT_I"] end }
-     NASOS_FLOK_ST     
+    ["USTANOVKA_OBEZ_ST"] = {["Comment"]="Статус установки обеззараживания", ["eval"] = function(Name)
+                                                                                          if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."UST_OBEZ_VIKL"] = true
+                                                                                          elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."UST_OBEZ_VKL"] = true
+                                                                                          elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."UST_OBEZ_VIKL_TR"] = true
+                                                                                          elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."UST_OBEZ_VKL_TR"] = true
+                                                                                          elseif Core[Name[2]..Name[3]] == 4 then Core[Name[2].."UST_OBEZ_AVAR"] = true
+                                                                                          end
+                                                                                        end },
+    ["RASH_CHAS"] = {["Comment"]="Расход в час", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
+    ["RASH_SUTK"] = {["Comment"]="Расход в сутки", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
+    ["RASH_MESC"] = {["Comment"]="Расход в месяц", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
+    ["RASH_TEKU"] = {["Comment"]="Расход текущий", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
+    ["RASH_MAXC"] = {["Comment"]="Расход максимальный в час", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
+    ["TEMPERATURA"] = {["Comment"]="Температура воды", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
+    ["NASOS_KOAGUL_ST"] = {["Comment"]="Насос коагулянта", ["eval"] = function(Name) 
+                                                                        if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."NASOS_KOAGUL_VIKL"] = true
+                                                                        elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."NASOS_KOAGUL_VKL_AVTO"] = true
+                                                                        elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."NASOS_KOAGUL_VIKL_RUCH"] = true
+                                                                        elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."NASOS_KOAGUL_AVAR"] = true
+                                                                        end
+                                                                      end },
+    ["KOMPRESSOR_ST"] = {["Comment"]="Компрессор", ["eval"] = function(Name)
+                                                                if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."KOMPRESSOR_VIKL"] = true
+                                                                elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."KOMPRESSOR_VIKL_TR"] = true
+                                                                elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."KOMPRESSOR_VIKL_AV"] = true
+                                                                elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."KOMPRESSOR_VKL"] = true
+                                                                elseif Core[Name[2]..Name[3]] == 4 then Core[Name[2].."KOMPRESSOR_VKL_TR"] = true
+                                                                end
+                                                              end },
+    ["NASOS_DOZ_FLOK_ST"] = {["Comment"]="Насос дозатор флокулянта", ["eval"] = function(Name)
+                                                                                  if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."NASOS_DOZ_FLOK_VIKL"] = true
+                                                                                  elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."NASOS_DOZ_FLOK_VKL_AVTO"] = true
+                                                                                  elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."NASOS_DOZ_FLOK_VKL_RUCH"] = true
+                                                                                  elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."NASOS_DOZ_FLOK_AVAR"] = true
+                                                                                  end
+                                                                                end },                                                              
+    ["NASOS_VTOR_OSAD_ST"] = {["Comment"]="Напряжение в еденицах 0-65535", ["eval"] = function(Name)
+                                                                                        if Core[Name[2]..Name[3]] == 0 then Core[Name[2].."NASOS_VTOR_OSAD_VIKL"] = true
+                                                                                        elseif Core[Name[2]..Name[3]] == 1 then Core[Name[2].."NASOS_VTOR_OSAD_VKL_AVTO"] = true
+                                                                                        elseif Core[Name[2]..Name[3]] == 2 then Core[Name[2].."NASOS_VTOR_OSAD_VIKL_RUCH"] = true
+                                                                                        elseif Core[Name[2]..Name[3]] == 3 then Core[Name[2].."NASOS_VTOR_OSAD_AVAR"] = true
+                                                                                        end
+                                                                                      end },
+    ["TEMPER_VKL_KLAPANA"] = {["Comment"]="ТОК в еденицах 0-65535", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end }     
 }
 -- Цикл для инициализации значений
 -- В данном цикле происходит:
@@ -40,8 +62,8 @@ local signals = {
 -- 2.Значения таблицы "signals" записываются в signals_Descriptor
 -- 3.Происходит вызов функции eval для каждого из сигналов, что инициализирует все сигналы которые содержит таблица
 for raw_objectName, objectName in pairs(objects) do
-  for _, signals_Descriptor in pairs(signals) do
-    signals_Descriptor.eval({raw_objectName,objectName})
+  for signals_Suffix, signals_Descriptor in pairs(signals) do
+    signals_Descriptor.eval({raw_objectName,objectName,signals_Suffix})
   end
 end
 
@@ -53,7 +75,7 @@ end
 -- то есть префиксом необработанного и обработанного сигнала
 for raw_objectName, objectName in pairs(objects) do
   for signals_Suffix, signals_Descriptor in pairs(signals) do
-    Core.onExtChange({raw_objectName..signals_Suffix},signals_Descriptor.eval,{raw_objectName,objectName})  
+    Core.onExtChange({raw_objectName..signals_Suffix},signals_Descriptor.eval,{raw_objectName,objectName,signals_Suffix})  
   end
 end
 
