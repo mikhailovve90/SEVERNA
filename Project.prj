@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Project v. 1.0 >
-<Project Name="АСУ Э КС Северная Газпром трансгаз Санкт-Петербург (в.3.3.0)" Comment="" Port="10000" EndPort="30000" UUID="F7A96C5F41D10C86EFEFE8AC88B70FC9" SignProject="TRUE" UsersUpdateMode="ASK">
+<Project Name="АСУ Э КС Северная Газпром трансгаз Санкт-Петербург (в.3.3.0)" Comment="" Port="10000" EndPort="30000" UUID="D718256341BBD3B9DBB16F872727419F" SignProject="TRUE" UsersUpdateMode="ASK">
     <Globals>
         <Signal Name="DR_TST_Input" UUID="9B958F2F4C94B135025A96906A6E5F60" Type="STRING" InitialValue="&apos;5.i10&apos;" Global="TRUE" Storage="persistent" />
         <Signal Name="GInput1" UUID="AE3531CB406EA930FE7ACD92B6849D4B" Type="BOOL" Global="TRUE" />
@@ -1656,6 +1656,8 @@
         <Signal Name="KOS2" UUID="011F11754078C822596B629510FE2ADB" Type="3F1F1FBB4F561912B3384AA445A31243" Global="TRUE" Comment="Параметры КОС2" />
         <Signal Name="RAW_KOS1_ST_UP" UUID="4B2A81564A5A090B71B8809A1C16C217" Type="8DA7BED14AD8607ECAC951825659834C" Global="TRUE" Comment="Статус модбаса с КОС1" />
         <Signal Name="RAW_KOS2_ST_UP" UUID="44258BC0492C1B901701AC9EDE91A649" Type="8DA7BED14AD8607ECAC951825659834C" Global="TRUE" Comment="Статус модбаса с KOC2" />
+        <Signal Name="RIDUS" UUID="D29CCBEF4FA2B57104B8C8929B2E3509" Type="F025273A440F84C622E0FF9C1AB676B9" Global="TRUE" Comment="ВТЗП на аккумуляторной" />
+        <Signal Name="RAW_RIDUS_ST_UP" UUID="BDB18394443597D74B1D72BD0C670B99" Type="8DA7BED14AD8607ECAC951825659834C" Global="TRUE" Comment="Статус модбаса с ВТЗП" />
     </Globals>
     <Connections />
 </Project>
