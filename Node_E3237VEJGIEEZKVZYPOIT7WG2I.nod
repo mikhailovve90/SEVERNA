@@ -9,8 +9,9 @@
         <SubApp Name="ELog" Type="19DBDF5C4F8326A4F7CC498003C066D4" Disabled="TRUE" Args="" ExecTimeout="20000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="717A4855447968520B6FDA8C37F026C7" />
         <SubApp Name="HMI_Init" Type="1B8184204FBB40F5C3CD89A6321DA10D" Disabled="TRUE" Args="" ExecTimeout="30000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="F6B95AFC480BBFEF196DEDB09355F640" />
         <SubApp Name="HMI_Animation" Type="B2ED73D94B7F166E9757358BFDAFD3F4" Disabled="TRUE" Args="" ExecTimeout="35000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="05C846EA45CC86D32CC94BBA207997F0" />
-        <SubApp Name="PROC_KOS" Type="80619B56463B88913369E2AA6976C4C3" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D7A84DF64614E584FB44B6970308A3E3" />
-        <SubApp Name="EVENT_KOS" Type="EA55B3C7402187E5DD43408E14300C40" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="990E740C4C6C44A62EA00A8ACDA07C83" />
+        <SubApp Name="PROC_KOS" Type="80619B56463B88913369E2AA6976C4C3" Disabled="TRUE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D7A84DF64614E584FB44B6970308A3E3" />
+        <SubApp Name="EVENT_KOS" Type="EA55B3C7402187E5DD43408E14300C40" Disabled="TRUE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="990E740C4C6C44A62EA00A8ACDA07C83" />
+        <SubApp Name="PROCESSING_RID" Type="1043786441EFEC8B398A31A85F58C3AB" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="3D3D15D442281190E83382974822979C" />
         <SubApp Name="Event_logger" Type="722BDB54416F4A5A03EFFB98174E8D3F" Disabled="TRUE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="DF91137E4E2F3C2CFE15F2AD7DA34C5F" />
         <SubApp Name="ARCHIVE" Type="2C34719B4FCC73050FF03D81E9C8A6AC" Disabled="TRUE" Args="" ExecTimeout="40000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="B164FC3D40B05A8982F599AF10F6168B" />
         <SubApp Name="HMI" Type="01E79B314099080F773B1DAF8A9FCB3C" Disabled="TRUE" Args="" ExecTimeout="150000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="DF8969DF45557A21423E6EA2A75F62B3" />
