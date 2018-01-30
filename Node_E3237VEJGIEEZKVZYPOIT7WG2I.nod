@@ -12,7 +12,8 @@
         <SubApp Name="PROC_KOS" Type="80619B56463B88913369E2AA6976C4C3" Disabled="TRUE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D7A84DF64614E584FB44B6970308A3E3" />
         <SubApp Name="EVENT_KOS" Type="EA55B3C7402187E5DD43408E14300C40" Disabled="TRUE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="990E740C4C6C44A62EA00A8ACDA07C83" />
         <SubApp Name="PROCESSING_RID" Type="1043786441EFEC8B398A31A85F58C3AB" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="3D3D15D442281190E83382974822979C" />
-        <SubApp Name="Event_logger" Type="722BDB54416F4A5A03EFFB98174E8D3F" Disabled="TRUE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="DF91137E4E2F3C2CFE15F2AD7DA34C5F" />
+        <SubApp Name="EVENT_RIDUS" Type="A7EACFD2462DE45D282C65B59C7E6925" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="272E90B24E89B67940EACE8C61623393" />
+        <SubApp Name="Event_logger" Type="722BDB54416F4A5A03EFFB98174E8D3F" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="DF91137E4E2F3C2CFE15F2AD7DA34C5F" />
         <SubApp Name="ARCHIVE" Type="2C34719B4FCC73050FF03D81E9C8A6AC" Disabled="TRUE" Args="" ExecTimeout="40000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="B164FC3D40B05A8982F599AF10F6168B" />
         <SubApp Name="HMI" Type="01E79B314099080F773B1DAF8A9FCB3C" Disabled="TRUE" Args="" ExecTimeout="150000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="DF8969DF45557A21423E6EA2A75F62B3" />
         <SubApp Name="SPAC_DRIVER" Type="F6583D794ABA9223F71612A8694E4107" Disabled="TRUE" Args="" ExecTimeout="80000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="CDABF5BD4D266CBCFFED6D85D6008DBB" />

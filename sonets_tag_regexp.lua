@@ -48,7 +48,7 @@ if is_column then
     match_result = {} -- найденый результат
     for j = 1, #source_string_array do -- проход по строке для поиска тегов из массива
         concat_match_res = ""
-        match_result[j] = string.match(source_string_array[j], required_tags_for_regexp[i].."\"(.-)\"") -- "("..required_tags_for_regexp[i].."\"(.-)\")") 
+        match_result[j] = string.match(source_string_array[j], "("..required_tags_for_regexp[i].."\"(.-)\")") -- "("..required_tags_for_regexp[i].."\"(.-)\")")  required_tags_for_regexp[i].."\"(.-)\""
       if match_result[j] ~= nil then 
         concat_match_res = concat_match_res..match_result[j]
         processed_file:write(concat_match_res.."\n")
