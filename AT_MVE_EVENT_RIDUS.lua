@@ -99,7 +99,7 @@ local signals = {
   
 }
 
-for drf_signal, _ in ipairs(old_DRFlag) do
+for drf_signal, _ in pairs(old_DRFlag) do
   Core.onExtChange({drf_signal}, Check_Data_Reliability, {drf_signal})
 end
 
