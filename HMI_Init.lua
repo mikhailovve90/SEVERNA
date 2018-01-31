@@ -31,8 +31,6 @@ function switch_fill(args)
   Core[sig_name..'.abbr'] = abbr
   Core[sig_name..'.qf'] = qf
   --  константы пока нет сигналов со SPAC
-  Core[sig_name..'.q.off'] = true
-  Core[sig_name..'.q.valid'] = true
 end
 --  статика ОЛ
 function ol_fill(args)
@@ -41,14 +39,14 @@ function ol_fill(args)
   switch_fill(args)
 end
 --  динамика zru
-function zru_process_sonet(obj, id)
+function zru_process_sonet(obj, id)  --  вызвали с аргументом VV1 1_11
   local Name = {}
   if (obj == 'OL') then
     Name = {'HMI_ZRU_'..obj..id, 'GSP_SEV_KSSEV_E_USOE_DI_KRU'..id}
     f1(Name, 'zn')
     f1(Name, 'switch.truck')
   elseif (obj=='VV1') or (obj=='VV2') or (obj=='SV') then
-    Name = {'HMI_ZRU_'..obj, 'GSP_SEV_KSSEV_E_USOE_DI_KRU'..id}
+    Name = {'HMI_ZRU_'..obj, 'GSP_SEV_KSSEV_E_USOE_DI_KRU'..id}  -- таблица
     f1(Name, 'zn')
     f1(Name, 'switch.truck')
   elseif (obj=='SHTN1') or (obj=='SHTN2') then
@@ -222,8 +220,8 @@ function GSU_dinit()
   Core['HMI_GSU_VV2.q.valid']=Core['GSP_SEV_KSSEV_E_USOGSU_DI_PAN01_2Q_ON.reliabilityFlag']
 end
 
-function ZRU_dinit()
-  zru_process_sonet('VV1', '1_11')
+function ZRU_dinit()                               -----------------------1 Вызов по кругу
+  zru_process_sonet('VV1', '1_11')                 -----------------------2 Вызываем zru_process_sonet(c аргументами VV1, 1_11)
   zru_process_sonet('VV2', '2_3')
   zru_process_sonet('SV', '1_13')
   zru_process_sonet('SHTN1', '1_5')

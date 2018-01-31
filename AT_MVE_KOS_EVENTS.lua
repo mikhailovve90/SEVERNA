@@ -209,7 +209,7 @@ local signals = {
   ["RAW_MESH_FLOK"]= {["Comment"] = sig_source..msg.RAW_MESH_FLOK, ["eval"]= function(Name) local Tag="RAW_MESH_FLOK" local signal= Core[Name[1]..Tag] Add_Event (Tag, signal, ScreenID_KOT, Name[1]) oldsignal[Tag] = signal end },
 }
 
-for drf_signal, _ in ipairs(old_DRFlag) do
+for drf_signal, _ in pairs(old_DRFlag) do
   Core.onExtChange({drf_signal}, Check_Data_Reliability, {drf_signal})
 end
 

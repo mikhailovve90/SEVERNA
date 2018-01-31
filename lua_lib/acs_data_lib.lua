@@ -88,6 +88,11 @@ end
 -- Принимает на вход байт и количество обарабатываемых бит. Возвращает массив булевых значений, где true = 1, false = 0
 function byte_to_bool(bytes, amount_bit)
   b = {}
+  
+  if type(amount_bit) ~= "number" then
+    amount_bit = 1
+  end
+  
   for i = 0, amount_bit, 1 do 
     b[i + 1] = bytes & 2^i
     if b[i + 1] == 0 then
