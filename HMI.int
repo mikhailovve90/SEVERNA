@@ -1028,7 +1028,7 @@
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UPS1_CONNECTION" UUID="43B69FFB4ABA41A6C3011782C6EEE8B5" Type="UINT" Global="TRUE" Comment="ИБП№1. Проверка связи с устройством." />
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UPS2_CONNECTION" UUID="70C1C85F4CF5E5BD7DDC93BDC15AB7C2" Type="UINT" Global="TRUE" Comment="ИБП№2. Проверка связи с устройством." />
         <Signal Name="Local_Visible" UUID="023C064C4E67112C6DF48FBEEB9F53CF" Type="BOOL" InitialValue="TRUE" Global="TRUE" Comment="Сигнал для изменения положения рамки" />
-        <Signal Name="GSP_SEV_KSSEV_DIAGN_LANTAN_CONNECTION" UUID="A4C07CF6431D8425DB046DA19C570E5E" Type="UINT" ArraySize="28" Global="TRUE" Comment="ЛАНТАН. Проверка связи с устройством" />
+        <Signal Name="GSP_SEV_KSSEV_DIAGN_LANTAN_CONNECTION" UUID="A4C07CF6431D8425DB046DA19C570E5E" Type="UINT" ArraySize="28" Global="TRUE" Comment="ЛАНТАН. Проверка связи с устройством. 1 - связь есть/ 2- потеря связи" />
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UK1_CONNECTION" UUID="819E65AD43907540C9CA40BA1EA588F8" Type="UINT" Global="TRUE" Comment="УК№1. Проверка связи с устройством." />
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UK2_CONNECTION" UUID="69C083F140814D9FDF5081B630BB21F6" Type="UINT" Global="TRUE" Comment="УК№2. Проверка связи с устройством." />
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UK3_CONNECTION" UUID="2EBAF4A04BCBFDE3F6B287B924D676C2" Type="UINT" Global="TRUE" Comment="УК№3. Проверка связи с устройством." />
@@ -1133,5 +1133,9 @@
         <Signal Name="Header_Text" UUID="D766609A49A794A1F5C79691841E2337" Type="STRING" Global="TRUE" />
         <Signal Name="ReportGazChanged" UUID="83036B1647D2217B183F9EA9E415571A" Type="BOOL" Global="TRUE" />
         <Signal Name="ReportGazIndex" UUID="C58A31E04012C869AF05F18B66AD9A2B" Type="INT" Global="TRUE" />
+        <Signal Name="KOS1" UUID="545B116F48BA04D800CBE98FCA227484" Type="3F1F1FBB4F561912B3384AA445A31243" Global="TRUE" Comment="Параметры КОС1" />
+        <Signal Name="KOS2" UUID="011F11754078C822596B629510FE2ADB" Type="3F1F1FBB4F561912B3384AA445A31243" Global="TRUE" Comment="Параметры КОС2" />
+        <Signal Name="RAW_KOS1_ST_UP" UUID="4B2A81564A5A090B71B8809A1C16C217" Type="8DA7BED14AD8607ECAC951825659834C" Global="TRUE" Comment="Статус модбаса с КОС1" />
+        <Signal Name="RAW_KOS2_ST_UP" UUID="44258BC0492C1B901701AC9EDE91A649" Type="8DA7BED14AD8607ECAC951825659834C" Global="TRUE" Comment="Статус модбаса с KOC2" />
     </InterfaceList>
 </SubAppType>

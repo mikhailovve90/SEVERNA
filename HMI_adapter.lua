@@ -4,7 +4,16 @@ require "./lua_lib/acs_data_lib"
 -- ключ - структура спака из нижнего уровня, значение - структура в ЧМИ
 spac_prefix = {["SPAC_VV1_803."] = "HMI_ZRU_VV1.",
                ["SPAC_VV2_803."] = "HMI_ZRU_VV2.",
-               ["SPAC_SV_803."] = "HMI_ZRU_SV." }
+               ["SPAC_SV_803."] = "HMI_ZRU_SV.",
+               ["SPAC_1_1_803."] = "HMI_ZRU_OL1_1.",
+               ["SPAC_1_3_803."] = "HMI_ZRU_OL1_3.",
+               ["SPAC_1_6_803."] = "HMI_ZRU_OL1_6.",
+               ["SPAC_1_12_803."] = "HMI_ZRU_OL1_12.",
+               ["SPAC_2_6_803."] = "HMI_ZRU_OL2_6.",
+               ["SPAC_2_8_803."] = "HMI_ZRU_OL2_8.",
+               ["SPAC_2_11_803."] = "HMI_ZRU_OL2_11.",
+               ["SPAC_2_17_803."] = "HMI_ZRU_OL2_17."
+               }
 
 -- Сопоставление конкретных переменных из структуры конкретным переменным из структуры ЧМИ          
 signal_spac_name = { ["RAW_SPAC_L2210_RPV_DP"] = "switch.q.on",
