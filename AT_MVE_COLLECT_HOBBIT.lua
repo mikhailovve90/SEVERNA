@@ -20,7 +20,7 @@ cnt_up = 0
 for _,prefix_s in ipairs(prefix) do
   cnt_up=cnt_up+1
   for _,signal_up_name in pairs(update_signal) do
-    Core.onTimer(cnt_up, 1, update_up, {prefix_s,signal_up_name})
+    Core.onTimer(cnt_up, 1.5, update_up, {prefix_s,signal_up_name})
   end
 end
 

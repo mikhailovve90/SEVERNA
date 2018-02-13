@@ -10,7 +10,7 @@ local user=""
 local ScreenID_KOT="KOTELNAYA" 
 
 local ObjID = "Hobbit2_params."
-local sig_source = "АСУ Э Котельная " 
+local sig_source = "Хоббит 2" 
 local time_source = "(Сервер)" 
 local DRFlag = Core["HOBBIT2_DS_DP"]
 local old_DRFlag = DRFlag 
@@ -132,7 +132,7 @@ function Check_Data_Reliability ()
       
       if   msg[Tag]==nil then break end
       
-      if DRFlag > 1 then   --заплатка для нерабочего модбас, должно быть DRFlag > 0     --если есть сбой предачи по сети модбас то
+      if DRFlag == 2 then   --заплатка для нерабочего модбас, должно быть DRFlag > 0     --если есть сбой предачи по сети модбас то
         Core.addEvent("НЕДОСТОВЕРНО: " .. msg[Tag], event.dr, 1, sig_source..time_source, user, ObjID..Tag, DT, ScreenID) --создаём событие о появлении недостоверности всех сигнала
         if Log then  Core.addLogMsg(os.date().." ".."(Появл) НЕДОСТОВЕРНО: " .. msg[Tag])end                                     --добавления сообщения в лог о появлении этого сигнала
       end
@@ -142,7 +142,7 @@ function Check_Data_Reliability ()
         if Log then  Core.addLogMsg(os.date().." ".."(Исчезн) НЕДОСТОВЕРНО: " .. msg[Tag]) end                                --добавления сообщения в лог о исчезновении этого сигнала
       end
       
-      i = i+1                                                                                                                   --Увеличиваем i на единицу
+      i = i+7                                                                                                                   --Увеличиваем i на единицу
     end
     
     old_DRFlag = DRFlag                                                                                                       --вписываем зачение старого флага новому, зачем? а х.з

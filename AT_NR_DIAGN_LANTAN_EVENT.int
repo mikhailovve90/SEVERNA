@@ -20,6 +20,6 @@
         <Signal Name="@FAILOVER_ERROR" UUID="A48A01FF4E10E6B41BBA15A6CDBB4FBE" Type="BOOL" />
         <Signal Name="@FAILOVER_RESERVE" UUID="B75FD76242CDF0D062EAFF9BA6690051" Type="BOOL" />
         <Signal Name="@FAILOVER_RESERVED" UUID="B6CC63C94798BACB7F2B6A89F8E1B9BD" Type="BOOL" />
-        <Signal Name="GSP_SEV_KSSEV_DIAGN_LANTAN_CONNECTION" UUID="A4C07CF6431D8425DB046DA19C570E5E" Type="UINT" ArraySize="28" Global="TRUE" Comment="ЛАНТАН. Проверка связи с устройством" />
+        <Signal Name="GSP_SEV_KSSEV_DIAGN_LANTAN_CONNECTION" UUID="A4C07CF6431D8425DB046DA19C570E5E" Type="UINT" ArraySize="28" Global="TRUE" Comment="ЛАНТАН. Проверка связи с устройством. 1 - связь есть/ 2- потеря связи" />
     </InterfaceList>
 </SubAppType>

@@ -25,12 +25,13 @@ local signals = {
                                                                                           elseif Core[Name[1]..Name[3]] == 4 then Core[Name[2].."UST_OBEZ_AVAR"] = true
                                                                                           end
                                                                                         end },
-    ["RASH_CHAS"] = {["Comment"]="Расход в час", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
-    ["RASH_SUTK"] = {["Comment"]="Расход в сутки", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
-    ["RASH_MESC"] = {["Comment"]="Расход в месяц", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
-    ["RASH_TEKU"] = {["Comment"]="Расход текущий", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
-    ["RASH_MAXC"] = {["Comment"]="Расход максимальный в час", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
-    ["TEMPERATURA"] = {["Comment"]="Температура воды", ["eval"] = function(Name) Core[Name[2]..Name[3]] = ieee754_from_hex(Core[Name[1]..Name[3]]) end },
+    ["RASH_CHAS"] = {["Comment"]="Расход в час", ["eval"] = function(Name) Core[Name[2]..Name[3]] = Core[Name[1]..Name[3]] * 0.1 end },
+    ["RASH_SUTK"] = {["Comment"]="Расход в сутки", ["eval"] = function(Name) Core[Name[2]..Name[3]] = Core[Name[1]..Name[3]] * 0.1 end },
+    ["RASH_MESC"] = {["Comment"]="Расход в месяц", ["eval"] = function(Name) Core[Name[2]..Name[3]] = Core[Name[1]..Name[3]] * 0.1 end },
+    ["RASH_TEKU"] = {["Comment"]="Расход текущий", ["eval"] = function(Name) Core[Name[2]..Name[3]] = Core[Name[1]..Name[3]] * 0.1 end },
+    ["RASH_MAXC"] = {["Comment"]="Расход максимальный в час", ["eval"] = function(Name) Core[Name[2]..Name[3]] = Core[Name[1]..Name[3]] * 0.1 end },
+    ["RASH_OBCH"] = {["Comment"]="Расход общий", ["eval"] = function(Name) Core[Name[2]..Name[3]] = Core[Name[1]..Name[3]] * 0.1 end },
+    ["TEMPERATURA"] = {["Comment"]="Температура воды", ["eval"] = function(Name) Core[Name[2]..Name[3]] = Core[Name[1]..Name[3]] end },
     ["NASOS_KOAGUL_ST"] = {["Comment"]="Насос коагулянта", ["eval"] = function(Name)
                                                                         Core[Name[2].."NASOS_KOAGUL_VIKL"] = false
                                                                         Core[Name[2].."NASOS_KOAGUL_VKL_AVTO"] = false

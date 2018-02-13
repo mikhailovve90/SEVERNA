@@ -3,9 +3,10 @@
 <Type Name="KOS" Kind="Struct" UUID="3F1F1FBB4F561912B3384AA445A31243">
     <Fields>
         <Field Name="RAW_USTANOVKA_OBEZ_ST" Type="INT" UUID="5B05D26F4C84786314058997A046BFE6" Comment="Установка обеззараживания 0 - выкл, 1 - вкл, 2 - выкл/тр, 3 - вкл/тр, 4 - авария" />
-        <Field Name="RAW_RASH_CHAS" Type="INT" UUID="92D2BB114FC8D9B268C890BF2881F431" Comment="Прошедший расход  за час (умножить на 0,1м3/ч)" />
-        <Field Name="RAW_RASH_SUTK" Type="INT" UUID="F7C5F9F1488BFA2591E636A62A379F4A" Comment="Прошедший расход  за сутки (умножить на 0,1м3/ч)" />
-        <Field Name="RAW_RASH_MESC" Type="INT" UUID="102E759F4D464A34CD101D8A296461C5" Comment="Прошедший расход  за месяц (умножить на 0,1м3/ч)" />
+        <Field Name="RAW_RASH_CHAS" Type="DWORD" UUID="92D2BB114FC8D9B268C890BF2881F431" Comment="Прошедший расход  за час (умножить на 0,1м3/ч)" />
+        <Field Name="RAW_RASH_SUTK" Type="DWORD" UUID="F7C5F9F1488BFA2591E636A62A379F4A" Comment="Прошедший расход  за сутки (умножить на 0,1м3/ч)" />
+        <Field Name="RAW_RASH_MESC" Type="DWORD" UUID="102E759F4D464A34CD101D8A296461C5" Comment="Прошедший расход  за месяц (умножить на 0,1м3/ч)" />
+        <Field Name="RAW_RASH_OBCH" Type="DWORD" UUID="FD55B7324995142B63FF7FB9E8B48095" Comment="Общий расход" />
         <Field Name="RAW_RASH_TEKU" Type="INT" UUID="D0C82EEB439960315C9EA590AA719F56" Comment="Прошедший расход  текущий (умножить на 0,1м3/ч)" />
         <Field Name="RAW_RASH_MAXC" Type="INT" UUID="687E89C84D7B0A21448697AB609ABD1C" Comment="Прошедший расход  максимальный за час (умножить на 0,1м3/ч)" />
         <Field Name="RAW_TEMPERATURA" Type="INT" UUID="A46E1DCA482AEFE0AEF974BEFEC9459D" Comment="Температура" />
@@ -49,10 +50,11 @@
         <Field Name="NASOS_FLOK_AVAR" Type="BOOL" UUID="8500C509422F4C05EE917D84F5C08EE5" Comment="Насос флокулянта авария" />
         <Field Name="TEMPER_VKL_KLAPANA" Type="REAL" UUID="DC23E6614533268C0B3A33AC1E64CF34" Comment="Температура открытия клапана" />
         <Field Name="TEMPERATURA" Type="REAL" UUID="49C4898246D76C544111C6868C48B3C6" Comment="Температура" />
-        <Field Name="RASH_CHAS" Type="REAL" UUID="A2556B854D33057448412A8EB19539B3" Comment="Расходы"/>
-        <Field Name="RASH_SUTK" Type="REAL" UUID="BE1045654C55C98C00409D83810BD5CF" Comment="Расходы"/>
-        <Field Name="RASH_MESC" Type="REAL" UUID="7DC9399A439E6B5B9B3B54B90461842F" Comment="Расходы"/>
-        <Field Name="RASH_TEKU" Type="REAL" UUID="6BF22C9B49D9F7FFEB7D69BFA09EBAC0" Comment="Расходы"/>
-        <Field Name="RASH_MAXC" Type="REAL" UUID="8EE5312A4AC8984B0C3EF7930B575C92" Comment="Расходы"/>
+        <Field Name="RASH_CHAS" Type="REAL" UUID="A2556B854D33057448412A8EB19539B3" Comment="Расходы" />
+        <Field Name="RASH_SUTK" Type="REAL" UUID="BE1045654C55C98C00409D83810BD5CF" Comment="Расходы" />
+        <Field Name="RASH_MESC" Type="REAL" UUID="7DC9399A439E6B5B9B3B54B90461842F" Comment="Расходы" />
+        <Field Name="RASH_TEKU" Type="REAL" UUID="6BF22C9B49D9F7FFEB7D69BFA09EBAC0" Comment="Расходы" />
+        <Field Name="RASH_MAXC" Type="REAL" UUID="8EE5312A4AC8984B0C3EF7930B575C92" Comment="Расходы" />
+        <Field Name="RASH_OBCH" Type="REAL" UUID="ACE738584BD8E4BE639EC9A38607C8CB" Comment="Общий расход" />
     </Fields>
 </Type>

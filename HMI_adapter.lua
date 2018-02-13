@@ -68,9 +68,9 @@ function adapter_spac(param_tables)
 
   if hmi_spac_signal == "switch.q.valid" then 
     if Core[spac_name..spac_signal] == 2 then
-      Core[hmi_spac_name..hmi_spac_signal] = true
-    else 
       Core[hmi_spac_name..hmi_spac_signal] = false
+    else 
+      Core[hmi_spac_name..hmi_spac_signal] = true
     end
   else
     signal = byte_to_bool(Core[spac_name..spac_signal])
@@ -109,6 +109,8 @@ function adapter_truck(param_tables)
     end
   end
 end
+
+os.sleep(25)
 
 -- инициализация  
 for spac_name, hmi_spac_name in pairs(spac_prefix) do

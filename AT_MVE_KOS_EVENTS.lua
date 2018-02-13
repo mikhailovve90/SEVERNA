@@ -1,7 +1,6 @@
 -- Временные переменные для формирования аварий
 local DRFlag 
 local Log=true 
-local old_DRFlag 
 local oldsignal = {} 
 local old_analog_signal_status = {} 
 
@@ -209,8 +208,9 @@ local signals = {
   ["RAW_MESH_FLOK"]= {["Comment"] = sig_source..msg.RAW_MESH_FLOK, ["eval"]= function(Name) local Tag="RAW_MESH_FLOK" local signal= Core[Name[1]..Tag] Add_Event (Tag, signal, ScreenID_KOT, Name[1]) oldsignal[Tag] = signal end },
 }
 
-for drf_signal, _ in pairs(old_DRFlag) do
-  Core.onExtChange({drf_signal}, Check_Data_Reliability, {drf_signal})
+for signal,_ in pairs(old_DRFlag) do
+  Core.addLogMsg(signal)
+  Core.onExtChange({signal}, Check_Data_Reliability, {signal})
 end
 
 for i = 1, #ObjID, 1 do

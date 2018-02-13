@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Node v. 1.3 >
-<Node Name="ASUE_Server_N2" Comment="Сервер №2 АСУЭ КС Северная" Disabled="TRUE" Address="192.168.1.12" NetworkTimeout="2000" PingInterval="300" RetryTimeout="100" AggregationInterval="10" LocalTimeout="2000" LocalPingInterval="300" LocalRetryTimeout="50" LocalAggregationInterval="4" UseSharedMem="FALSE" EventQueue="2000" StoreEventQueue="FALSE" StartState="Default" CoupledNode="DDC7861043AC2723B9C125A262029322" ControlApplication="765BA67049F27BD57FB74A9AB40993DA" UUID="C5DC6BC74B19C9F41ECFB9AB15285ED3">
+<Node Name="ASUE_Server_N2" Comment="Сервер №2 АСУЭ КС Северная" Disabled="FALSE" Address="192.168.1.12" NetworkTimeout="2000" PingInterval="300" RetryTimeout="100" AggregationInterval="10" LocalTimeout="2000" LocalPingInterval="300" LocalRetryTimeout="50" LocalAggregationInterval="4" UseSharedMem="FALSE" EventQueue="2000" StoreEventQueue="FALSE" StartState="Default" CoupledNode="DDC7861043AC2723B9C125A262029322" ControlApplication="765BA67049F27BD57FB74A9AB40993DA" UUID="C5DC6BC74B19C9F41ECFB9AB15285ED3">
     <InterfaceList>
         <SubApp Name="EventLogger" Type="19DBDF5C4F8326A4F7CC498003C066D4" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="05F035B5406690DDA88CA5AA589A571D" />
         <SubApp Name="ARCHIVE" Type="2C34719B4FCC73050FF03D81E9C8A6AC" Disabled="FALSE" Args="" ExecTimeout="15000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="4699ED054FC6610F6BC7BF982A046C11" />
@@ -22,6 +22,7 @@
         <SubApp Name="SPAC_COM" Type="70ADFA564C4E87543B9D979F0CE94020" Disabled="FALSE" Args="" ExecTimeout="95000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="CA00CD16493E11B6810B9891886E59AF" />
         <SubApp Name="DS_SPAC" Type="EEAD976844B15873D2DB51868BBCCE83" Disabled="FALSE" Args="" ExecTimeout="100000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="723401B940B351CE0D359A9EDF1A2954" />
         <SubApp Name="SPAC_SETT" Type="4ECDA1E44B2F6C506E32E5B189CEC74B" Disabled="FALSE" Args="" ExecTimeout="105000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C60491EE4C4BEC864CF6E787C871EB46" />
+        <SubApp Name="ADAPTER" Type="15B1BC4E4613B8844A34FCA7C6848485" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="AAB89C184CCAD09AF3F70CAA55169007" />
         <SubApp Name="COLLECT_ELIM" Type="4FDA9BE447B3F22FAC01C99A4337E5AD" Disabled="FALSE" Args="" ExecTimeout="110000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C92448FD467276F0A9B3CB9C0B278C54" />
         <SubApp Name="COLLECT_LUA" Type="A1D763DF489CDD488D61428977C65752" Disabled="FALSE" Args="" ExecTimeout="115000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="55A61F79414809086DE6EFBD35C6298A" />
         <SubApp Name="ELIM1" Type="B597ABBF4A2516C9AEEE1D95861AF2B0" Disabled="FALSE" Args="" ExecTimeout="120000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="8C56C6EE4F6C1485344243A99A90ED22" />
@@ -34,13 +35,13 @@
         <SubApp Name="Event_Hobbit1" Type="E3076B164ED430313E46AE9B4E52AB9F" Disabled="FALSE" Args="" ExecTimeout="155000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="0C89779D4126D120313B468617A66A6D" />
         <SubApp Name="Event_Hobbit2" Type="EDBCA4ED44DBFC727EFD9ABB0A767886" Disabled="FALSE" Args="" ExecTimeout="160000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D2087330410BE236737F32A6CE969104" />
         <SubApp Name="Processing_Hobbits" Type="0E02972543C2CA793370DFA50B6FF377" Disabled="FALSE" Args="" ExecTimeout="165000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="4B1C52FB46A670ED312D3396772A5E37" />
-        <SubApp Name="SK712_COLLECT" Type="7799BFE047FBCE1C48FDE1978FDE1E3B" Disabled="TRUE" Args="" ExecTimeout="170000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="36822D44428F74F40C7447A2E4B4C59C" />
-        <SubApp Name="SK712_COLLECT_LUA" Type="340724A247D7288875219AA93E968A23" Disabled="TRUE" Args="" ExecTimeout="175000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="CD4C2BFC4D72678FBBF5EFACEF5505DB" />
-        <SubApp Name="SK712_PROC" Type="DB68F045467F87BB67329E9005641E99" Disabled="TRUE" Args="" ExecTimeout="180000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="89A1415741B9391C85CF6DAEE50D01EF" />
-        <SubApp Name="SK712_EVENT" Type="69898CE34CB339E4B86E75A18DB33D54" Disabled="TRUE" Args="" ExecTimeout="185000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D1211DF443D3F8A1C2D31D993ADCBA74" />
-        <SubApp Name="BOILERROOM" Type="14BFB9AD4F22D206349F2C8755494C00" Disabled="TRUE" Args="" ExecTimeout="190000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D403DA6C474F5C3049A3BCB35D13A466" />
-        <SubApp Name="BOILERROOM_EVENTS" Type="0D23956F4C8B484A8DFDFF88AB9B8108" Disabled="TRUE" Args="" ExecTimeout="195000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="74C4D10A47C2E9A69070608C3ED1F3A8" />
-        <SubApp Name="BOILER_EVENTS" Type="40E0E6FF4BA053FCE63CCEA557101A44" Disabled="TRUE" Args="" ExecTimeout="200000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="661469454B3167ABB2D1768F30A25753" />
+        <SubApp Name="SK712_COLLECT" Type="7799BFE047FBCE1C48FDE1978FDE1E3B" Disabled="FALSE" Args="" ExecTimeout="170000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="36822D44428F74F40C7447A2E4B4C59C" />
+        <SubApp Name="SK712_COLLECT_LUA" Type="340724A247D7288875219AA93E968A23" Disabled="FALSE" Args="" ExecTimeout="175000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="CD4C2BFC4D72678FBBF5EFACEF5505DB" />
+        <SubApp Name="SK712_PROC" Type="DB68F045467F87BB67329E9005641E99" Disabled="FALSE" Args="" ExecTimeout="180000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="89A1415741B9391C85CF6DAEE50D01EF" />
+        <SubApp Name="SK712_EVENT" Type="69898CE34CB339E4B86E75A18DB33D54" Disabled="FALSE" Args="" ExecTimeout="185000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D1211DF443D3F8A1C2D31D993ADCBA74" />
+        <SubApp Name="BOILERROOM" Type="14BFB9AD4F22D206349F2C8755494C00" Disabled="FALSE" Args="" ExecTimeout="190000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="D403DA6C474F5C3049A3BCB35D13A466" />
+        <SubApp Name="BOILERROOM_EVENTS" Type="0D23956F4C8B484A8DFDFF88AB9B8108" Disabled="FALSE" Args="" ExecTimeout="195000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="74C4D10A47C2E9A69070608C3ED1F3A8" />
+        <SubApp Name="BOILER_EVENTS" Type="40E0E6FF4BA053FCE63CCEA557101A44" Disabled="FALSE" Args="" ExecTimeout="200000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="661469454B3167ABB2D1768F30A25753" />
         <SubApp Name="SPT943_DRIVER" Type="4DF037E144455F3DE9B044BB716B308B" Disabled="FALSE" Args="" ExecTimeout="205000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="81B6F7E44269DD653AD431B5FFC62880" />
         <SubApp Name="SPT943_DRIVER1" Type="099EF33C4B6C8B0DB2DE10B9475B9E0E" Disabled="FALSE" Args="" ExecTimeout="210000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="B2E1C6C7476742413F28A4AC1955396F" />
         <SubApp Name="SPT943_DRIVER2" Type="A071C9A54D268D897086EC876EA60E0B" Disabled="FALSE" Args="" ExecTimeout="215000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="0E7419DC4A93448CA14C0FA2625418C4" />
@@ -49,5 +50,9 @@
         <SubApp Name="SPT943_TIMER2" Type="D7322E2A406C5397764184AC1FBCF5F1" Disabled="FALSE" Args="" ExecTimeout="230000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="BC61A1854FC1CE7C639867B08732A198" />
         <SubApp Name="SPT943_TIMER3" Type="3FF33D34455FBF3F33EDEC8766025219" Disabled="FALSE" Args="" ExecTimeout="235000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="F56E7CDD47C2C8A1E578859626491118" />
         <SubApp Name="Hidden_Ping" Type="913F41674B01F75DD59DA688CAA0AA53" Disabled="FALSE" Args="" ExecTimeout="1000000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="F009CA3C4E6EDC982AA561A5F6F3A94C" />
+        <SubApp Name="KOS1_COL" Type="1B0D25E049CC084786705D949B5C3A6F" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C040543142A1099C712B5D92DD3709D5" />
+        <SubApp Name="KOS2_COL" Type="EC74DB64461EA6ABF5AA17B5A9543666" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="6393F9C94AF83058C84FD4A75703CA8C" />
+        <SubApp Name="KOS1_PROC" Type="80619B56463B88913369E2AA6976C4C3" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C24E10BD43576DB889D9A98C4567FDCC" />
+        <SubApp Name="KOS1_EVE" Type="EA55B3C7402187E5DD43408E14300C40" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="4FB39BFF4AE5A881D497A48175B1C9FB" />
     </InterfaceList>
 </Node>

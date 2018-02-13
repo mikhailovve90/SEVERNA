@@ -48,7 +48,8 @@ function processing(req_info)
   if Core[update_signal] == true then -- Если есть команда на запрос выполнить запрос и записать результат в переменную
     answer = request_on_port(request_for_port(req_info[1], req_info[2]))-- выполнение запроса выполняется функцией request_for_port(req_info[1], req_info[2]), где req_info[1] - стандартные байты префикса сообщения, req_info[2] - тело сообщения
     if answer[2] == "bad" then
-      Core.addLogMsg("Error port connect or read data")
+      port:clearBuffers()
+      Core.addLogMsg("Error read data")
       Core.addLogMsg("Try to connect ...")
       bad_answer_count = bad_answer_count + 1
       
@@ -61,12 +62,10 @@ function processing(req_info)
         Core["HOBBIT1_DS_DP"] = 2
         Core.addLogMsg("HOBBIT ERROR")
       end
-      
+
       processing({pref_msg, msg})
     end
   end
-  
-  
  
   -- Считаем CRC пришедшего пакета
   validation = answer[1]:sub(3, -3)
@@ -149,7 +148,6 @@ function request_on_port(request)
         return {0, 10}
       end]]
   end
-  
   return {answer, success}  
 end
 

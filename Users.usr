@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE UserList v. 1.0 >
-<GroupList CRC16="59505">
-    <Group Name="Adm" Rights="@SYSTEM_ColdRestart,@SYSTEM_HotRestart,@SYSTEM_RunApp,@SYSTEM_SetDateTime,@SYSTEM_Stop,Адрес,Команды,Печать,Просмотр журнала информационной безопасности,Редактирование пользователей,Уставки АС,Уставки РЗА,Экспорт">
+<GroupList CRC16="4778">
+    <Group Name="Adm" Rights="@SYSTEM_ColdRestart,@SYSTEM_HotRestart,@SYSTEM_RunApp,@SYSTEM_SetDateTime,@SYSTEM_Stop,Адрес,Квитирование,Команды,Печать,Просмотр журнала информационной безопасности,Редактирование пользователей,Уставки АС,Уставки РЗА,Экспорт">
         <SessionRestrictions>
             <Duration Restricted="FALSE" Value="T#0s" />
             <Dates RestrictedFrom="FALSE" DateFrom="D#1970-01-01" RestrictedTo="FALSE" DateTo="D#1970-01-01" />
