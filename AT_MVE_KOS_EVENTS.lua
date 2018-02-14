@@ -9,7 +9,8 @@ local user=""
 local ScreenID_KOT="KOS" 
 
 local ObjID = {"KOS1.", "KOS2."}
-local sig_source="АСУ Э КОС " 
+objname = {["KOS1."] = "КОС1", ["KOS2."] = "КОС2"}
+local sig_source="АСУ Э" 
 local time_source = "(Сервер)" 
 local old_DRFlag = {["RAW_KOS1_ST_UP.STATUS_DEVICE"] = Core["RAW_KOS1_ST_UP.STATUS_DEVICE"],
                     ["RAW_KOS2_ST_UP.STATUS_DEVICE"] = Core["RAW_KOS2_ST_UP.STATUS_DEVICE"]}
@@ -169,7 +170,7 @@ function Add_Event (Tag, signal, screen_id, objid)
   end   
 
   if oldsignal[Tag] == nil or oldsignal[Tag] ~= signal then 
-    Core.addEvent(msg[Tag], event_class[Tag], e_type, sig_source..time_source, user, objid..Tag, DT, screen_id) 
+    Core.addEvent(msg[Tag], event_class[Tag], e_type, sig_source.." "..objname[objid], user, objid..Tag, DT, screen_id) 
   end 
 end 
 

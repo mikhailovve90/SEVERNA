@@ -22,13 +22,13 @@ local signals = {
                                                                                                           
     ["RUN_PERR"] = {["Comment"]="Обобщённая неисправность насосов бит 0-2, работа насосов бит 8-13", ["eval"] = function(Name)
                                                                                                                   fault_run_pumps_bits = byte_to_bool(Core[Name[1].."RUN_PERR"], 12)
+                                                                                                                  Core[Name[2].."PUMP1_WORK"] = fault_run_pumps_bits[9]
+                                                                                                                  Core[Name[2].."PUMP2_WORK"] = fault_run_pumps_bits[10]
+                                                                                                                  Core[Name[2].."PUMP3_WORK"] = fault_run_pumps_bits[11]
+                                                                                                                  
                                                                                                                   Core[Name[2].."PUMP1_FAULT"] = fault_run_pumps_bits[1]
                                                                                                                   Core[Name[2].."PUMP2_FAULT"] = fault_run_pumps_bits[2]
-                                                                                                                  Core[Name[2].."PUMP3_FAULT"] = fault_run_pumps_bits[3]
-                                                                                                                  
-                                                                                                                  Core[Name[2].."PUMP1_FAULT"] = fault_run_pumps_bits[9]
-                                                                                                                  Core[Name[2].."PUMP2_FAULT"] = fault_run_pumps_bits[10]
-                                                                                                                  Core[Name[2].."PUMP3_FAULT"] = fault_run_pumps_bits[11]                                                                        
+                                                                                                                  Core[Name[2].."PUMP3_FAULT"] = fault_run_pumps_bits[3]                                                                        
                                                                                                                 end },
     
     ["RDY_CONN"] = {["Comment"]="Контроллер насоса отвечает на запросы, состояние насосов бит 8-13", ["eval"] = function(Name)
