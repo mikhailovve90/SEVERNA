@@ -7,11 +7,11 @@ local old_analog_signal_status = {}
 
 -- Для алармов имя пользователя и название зоны(экрана)
 local user=""
-local ScreenID_KOT="KOTELNAYA" 
+local ScreenID_KOT="VOS" 
 
 local ObjID = "VOS_SK712_CONTROL_PUMPS."
 local sig_source = "АСУ Э ВОС" 
-local time_source = "(Сервер)" 
+local time_source = "" 
 local DRFlag = Core["RAW_SK712_1_UP_ST.STATUS_DEVICE"]
 local old_DRFlag = DRFlag 
 local TagList={ 

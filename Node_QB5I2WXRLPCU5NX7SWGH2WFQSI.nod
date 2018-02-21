@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Node v. 1.3 >
-<Node Name="USOKTP2_A1" Comment="УСО КТП2 ПЛК А1" Disabled="TRUE" Address="192.168.1.30" NetworkTimeout="2000" PingInterval="300" RetryTimeout="100" AggregationInterval="20" LocalTimeout="1000" LocalPingInterval="300" LocalRetryTimeout="100" LocalAggregationInterval="10" UseSharedMem="FALSE" EventQueue="2000" StoreEventQueue="TRUE" StartState="Default" UUID="5FE7FE8640D654552B7FD3A5A030CDC0">
+<Node Name="USOKTP2_A1" Comment="УСО КТП2 ПЛК А1" Disabled="FALSE" Address="192.168.1.30" NetworkTimeout="2000" PingInterval="300" RetryTimeout="100" AggregationInterval="20" LocalTimeout="1000" LocalPingInterval="300" LocalRetryTimeout="100" LocalAggregationInterval="10" UseSharedMem="FALSE" EventQueue="2000" StoreEventQueue="TRUE" StartState="Default" UUID="5FE7FE8640D654552B7FD3A5A030CDC0">
     <InterfaceList>
         <SubApp Name="USOKTP2_A1_Data_Collect" Type="600BB69940DD7B423F2E48B7817B5C0C" Disabled="FALSE" Args="" ExecTimeout="15000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="FFF6464941A6E55D4287B4947268DBD1" />
         <SubApp Name="USOKTP2_A1_Data_Status" Type="42AA66FA47532C730E5C748679F9373D" Disabled="FALSE" Args="" ExecTimeout="30000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="E9953BA4423F89E0F11827884287C35C" />

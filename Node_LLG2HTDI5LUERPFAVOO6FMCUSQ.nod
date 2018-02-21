@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Node v. 1.3 >
-<Node Name="USOE_A1" Comment="УСО Э ПЛК А1" Disabled="TRUE" Address="192.168.1.100" NetworkTimeout="2000" PingInterval="300" RetryTimeout="100" AggregationInterval="20" LocalTimeout="2000" LocalPingInterval="300" LocalRetryTimeout="100" LocalAggregationInterval="10" UseSharedMem="FALSE" EventQueue="2000" StoreEventQueue="TRUE" StartState="Default" UUID="05F9585849E782553B51299E5BCE3011">
+<Node Name="USOE_A1" Comment="УСО Э ПЛК А1" Disabled="FALSE" Address="192.168.1.100" NetworkTimeout="2000" PingInterval="300" RetryTimeout="100" AggregationInterval="20" LocalTimeout="2000" LocalPingInterval="300" LocalRetryTimeout="100" LocalAggregationInterval="10" UseSharedMem="FALSE" EventQueue="2000" StoreEventQueue="TRUE" StartState="Default" UUID="05F9585849E782553B51299E5BCE3011">
     <InterfaceList>
         <SubApp Name="USOE_A1_Data_Collect" Type="56FC0FF74B8833675B2C99A5F3336D86" Disabled="FALSE" Args="" ExecTimeout="13000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="336E20A246A47530DE55EDAB5C6929C2" />
         <SubApp Name="USOE_A1_Data_Status" Type="860B805F43607692231EB085CA7C3F99" Disabled="FALSE" Args="" ExecTimeout="14000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="9F9E469C4277E822005F879AF2CC2880" />

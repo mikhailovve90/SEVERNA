@@ -10,7 +10,7 @@ local user=""
 local ScreenID_KOT="KOTELNAYA" 
 
 local ObjID = "UPS_ELIM1."
-local sig_source="АСУ Э Котельная " 
+local sig_source="АСУ Э Аккумуляторная Элим 1" 
 local time_source = "(Сервер)" 
 local DRFlag = Core["RAW_ELIM1_UP_ST.STATUS_DEVICE"]
 local old_DRFlag = DRFlag

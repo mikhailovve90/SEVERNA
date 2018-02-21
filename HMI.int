@@ -1028,7 +1028,7 @@
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UPS1_CONNECTION" UUID="43B69FFB4ABA41A6C3011782C6EEE8B5" Type="UINT" Global="TRUE" Comment="ИБП№1. Проверка связи с устройством." />
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UPS2_CONNECTION" UUID="70C1C85F4CF5E5BD7DDC93BDC15AB7C2" Type="UINT" Global="TRUE" Comment="ИБП№2. Проверка связи с устройством." />
         <Signal Name="Local_Visible" UUID="023C064C4E67112C6DF48FBEEB9F53CF" Type="BOOL" InitialValue="TRUE" Global="TRUE" Comment="Сигнал для изменения положения рамки" />
-        <Signal Name="GSP_SEV_KSSEV_DIAGN_LANTAN_CONNECTION" UUID="A4C07CF6431D8425DB046DA19C570E5E" Type="UINT" ArraySize="28" Global="TRUE" Comment="ЛАНТАН. Проверка связи с устройством. 1 - связь есть/ 2- потеря связи" />
+        <Signal Name="GSP_SEV_KSSEV_DIAGN_LANTAN_CONNECTION" UUID="A4C07CF6431D8425DB046DA19C570E5E" Type="UINT" ArraySize="28" Global="TRUE" Comment="ЛАНТАН. Проверка связи с устройством" />
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UK1_CONNECTION" UUID="819E65AD43907540C9CA40BA1EA588F8" Type="UINT" Global="TRUE" Comment="УК№1. Проверка связи с устройством." />
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UK2_CONNECTION" UUID="69C083F140814D9FDF5081B630BB21F6" Type="UINT" Global="TRUE" Comment="УК№2. Проверка связи с устройством." />
         <Signal Name="GSP_SEV_KSSEV_DIAGN_UK3_CONNECTION" UUID="2EBAF4A04BCBFDE3F6B287B924D676C2" Type="UINT" Global="TRUE" Comment="УК№3. Проверка связи с устройством." />
@@ -1137,5 +1137,7 @@
         <Signal Name="KOS2" UUID="011F11754078C822596B629510FE2ADB" Type="3F1F1FBB4F561912B3384AA445A31243" Global="TRUE" Comment="Параметры КОС2" />
         <Signal Name="RAW_KOS1_ST_UP" UUID="4B2A81564A5A090B71B8809A1C16C217" Type="8DA7BED14AD8607ECAC951825659834C" Global="TRUE" Comment="Статус модбаса с КОС1" />
         <Signal Name="RAW_KOS2_ST_UP" UUID="44258BC0492C1B901701AC9EDE91A649" Type="8DA7BED14AD8607ECAC951825659834C" Global="TRUE" Comment="Статус модбаса с KOC2" />
+        <Signal Name="VOS_SK712_CONTROL_PUMPS" UUID="AD45C70A43291E942A53D5A6DBE4E798" Type="712BBA88476F4E326F61608116367F08" Global="TRUE" />
+        <Signal Name="RAW_SK712_1_UP_ST" UUID="BB83AFC14FF00E37DBD65F9F4227FF2F" Type="8DA7BED14AD8607ECAC951825659834C" Global="TRUE" />
     </InterfaceList>
 </SubAppType>
