@@ -3,40 +3,6 @@ local AS=10000
 
 local Log=true 
 local time_source ="(Сервер)"
-
-local function Add_DS_Event(signal)
-  os.sleep(0.1)
-  local DT=os.date("%X",os.time()) 
-  local DT_POSIX=os.time() 
-  local i=0
-  local user="" --заплатка исправить на Core["USER_NAME_OUT"]??? 
-  
-  if Core[signal[1]..signal[2]..signal[3]] == 2 then -- заплатка на модбас --or Core[signal]==true then
-    Core.addEvent("Разрыв связи с устройством", AS, 1, spac_source[signal[2]], user, signal[1]..signal[2]..signal[3], DT_POSIX, screen_id)
-  
-    for msg, screen_id in pairs(EDB.msg) do  
-       i=i+1
-       Core.addEvent("НЕДОСТОВЕРНО: " ..msg, EDB.cat, 1, spac_source[signal[2]], user, signal[1]..signal[2]..signal[3]..i..EDB.cat, DT_POSIX, screen_id) --..i
-      if Log then Core.addLogMsg(DT.." ".."(Появл.) " .."НЕДОСТОВЕРНО: " .. msg.." "..screen_id.." "..i.." "..time_source.." "..user.." "..signal[1].." "..EDB.cat) end 
-    end
-  elseif Core[signal[1]..signal[2]..signal[3]] <= 1 then -- заплатка на модбасor Core[signal]==false then
-    Core.addEvent("Разрыв связи с устройством", AS, 0, spac_source[signal[2]], user, signal[1]..signal[2]..signal[3], DT_POSIX, screen_id)
-    
-    for msg, screen_id in pairs(EDB.msg) do 
-    i=i+1
-       Core.addEvent("НЕДОСТОВЕРНО: " ..msg, EDB.cat, 0, spac_source[signal[2]], user, signal[1]..signal[2]..signal[3]..i..EDB.cat, DT_POSIX, screen_id) --..i
-      if Log then Core.addLogMsg(DT.." ".."(Исчезн.) " .."НЕДОСТОВЕРНО: " .. msg.." "..screen_id.." "..i.." "..time_source.." "..user.." "..signal[1].." "..EDB.cat) end 
-    end
-  end 
-end 
-
-local spac_prefix = "SPAC_"
-
-local spacs_list = {"VV1_803.", "VV2_803.", "SV_803.",
-             "1_1_803.", "1_6_803.", "1_12_803.",
-             "2_6_803.", "2_8_803.", "2_11_803.",
-             "2_17_803.", "1_3_803."}
-
 local spac_source = {
 ["VV1_803."] = "ЗРУ 10кВ Ввод1",
 ["VV2_803."] = "ЗРУ 10кВ Ввод2",
@@ -50,6 +16,14 @@ local spac_source = {
 ["2_17_803."] = "ЗРУ 10кВ Т6 ВОС",
 ["1_3_803."] = "ЗРУ 10кВ Ячейка 1_3"
 }
+local spac_prefix = "SPAC_"
+
+local spacs_list = {"VV1_803.", "VV2_803.", "SV_803.",
+             "1_1_803.", "1_6_803.", "1_12_803.",
+             "2_6_803.", "2_8_803.", "2_11_803.",
+             "2_17_803.", "1_3_803."}
+
+
           
 local spac_status_signal = {"RAW_SPAC_L2210_DEVICE1_STATUS"}
                      --"RAW_SPAC_4D28_DEVICE1_STATUS"}
@@ -247,6 +221,35 @@ local EDB =
   ["cat"]=DS,
   ["sig_source"] = "ЗРУ_СПАК"
 }
+
+local function Add_DS_Event(signal)
+  os.sleep(0.1)
+  local DT=os.date("%X",os.time()) 
+  local DT_POSIX=os.time() 
+  local i=0
+  local user="" --заплатка исправить на Core["USER_NAME_OUT"]??? 
+  
+  if Core[signal[1]..signal[2]..signal[3]] == 2 then -- заплатка на модбас --or Core[signal]==true then
+    Core.addEvent("Разрыв связи с устройством", AS, 1, spac_source[signal[2]], user, signal[1]..signal[2]..signal[3], DT_POSIX, screen_id)
+  
+    for msg, screen_id in pairs(EDB.msg) do  
+       i=i+1
+       Core.addEvent("НЕДОСТОВЕРНО: " ..msg, EDB.cat, 1, spac_source[signal[2]], user, signal[1]..signal[2]..signal[3]..i..EDB.cat, DT_POSIX, screen_id) --..i
+      if Log then Core.addLogMsg(DT.." ".."(Появл.) " .."НЕДОСТОВЕРНО: " .. msg.." "..screen_id.." "..i.." "..time_source.." "..user.." "..signal[1].." "..EDB.cat) end 
+    end
+  elseif Core[signal[1]..signal[2]..signal[3]] <= 1 then -- заплатка на модбасor Core[signal]==false then
+    Core.addEvent("Разрыв связи с устройством", AS, 0, spac_source[signal[2]], user, signal[1]..signal[2]..signal[3], DT_POSIX, screen_id)
+    
+    for msg, screen_id in pairs(EDB.msg) do 
+    i=i+1
+       Core.addEvent("НЕДОСТОВЕРНО: " ..msg, EDB.cat, 0, spac_source[signal[2]], user, signal[1]..signal[2]..signal[3]..i..EDB.cat, DT_POSIX, screen_id) --..i
+      if Log then Core.addLogMsg(DT.." ".."(Исчезн.) " .."НЕДОСТОВЕРНО: " .. msg.." "..screen_id.." "..i.." "..time_source.." "..user.." "..signal[1].." "..EDB.cat) end 
+    end
+  end 
+end 
+
+
+
 
   for i = 1, #spacs_list, 1 do 
     for j = 1, #spac_status_signal, 1 do
