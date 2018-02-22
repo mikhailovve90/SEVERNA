@@ -2,7 +2,7 @@
 require "./lua_lib/acs_data_lib"
 
 -- ключ - структура спака из нижнего уровня, значение - структура в ЧМИ
-spac_prefix = {["SPAC_VV1_803."] = "HMI_ZRU_VV1.",
+local spac_prefix = {["SPAC_VV1_803."] = "HMI_ZRU_VV1.",
                ["SPAC_VV2_803."] = "HMI_ZRU_VV2.",
                ["SPAC_SV_803."] = "HMI_ZRU_SV.",
                ["SPAC_1_1_803."] = "HMI_ZRU_OL1_1.",
@@ -16,14 +16,14 @@ spac_prefix = {["SPAC_VV1_803."] = "HMI_ZRU_VV1.",
                }
 
 -- Сопоставление конкретных переменных из структуры конкретным переменным из структуры ЧМИ          
-signal_spac_name = { ["RAW_SPAC_L2210_RPV_DP"] = "switch.q.on",
+local signal_spac_name = { ["RAW_SPAC_L2210_RPV_DP"] = "switch.q.on",
                      ["RAW_SPAC_L2210_RPO_DP"] = "switch.q.off",
                      ["RAW_SPAC_L2210_MU_DU_DP"] = "switch.du",
                      ["RAW_SPAC_L2210_DEVICE1_STATUS"] = "switch.q.valid",
                      ["RAW_SPAC_L2210_SIG_BLOCK_VIHOD2_DP[2]"] = "switch.q.avoff"}
                      
                      
-zn_prefix = {
+local zn_prefix = {
                ["GSP_SEV_KSSEV_E_USOE_DI_KRU1_1_QN_ON."] = "HMI_ZRU_OL1_1.",
                ["GSP_SEV_KSSEV_E_USOE_DI_KRU1_2_QN_ON."] = "HMI_ZRU_OL1_2.",
                ["GSP_SEV_KSSEV_E_USOE_DI_KRU1_3_QN_ON."] = "HMI_ZRU_OL1_3.",
@@ -46,25 +46,25 @@ zn_prefix = {
                ["GSP_SEV_KSSEV_E_USOE_DI_KRU2_18_QN_ON."] = "HMI_ZRU_OL2_18."
                }
 
-signal_zn_name = { ["Value"] = "zn.on",
+local signal_zn_name = { ["Value"] = "zn.on",
                    ["reliabilityFlag"] = "zn.valid"}
 
-truck_prefix = {
+local truck_prefix = {
                 ["GSP_SEV_KSSEV_E_USOE_DI_KRU2_1_SQ_ON."] = "HMI_ZRU_SRZ."
                }
   
-signal_truck_name = {
+local signal_truck_name = {
                       ["Value"] = "q.on",
                       ["reliabilityFlag"] = "q.valid"}
 
   
                    
 -- адаптер который по изменению значения с устройства изменяет значение в ЧМИ для спака
-function adapter_spac(param_tables)
-  spac_name = param_tables[1]
-  hmi_spac_name = param_tables[2]
-  spac_signal = param_tables[3]
-  hmi_spac_signal = param_tables[4]
+local function adapter_spac(param_tables)
+  local spac_name = param_tables[1]
+  local hmi_spac_name = param_tables[2]
+  local spac_signal = param_tables[3]
+  local hmi_spac_signal = param_tables[4]
 
   if hmi_spac_signal == "switch.q.valid" then 
     if Core[spac_name..spac_signal] == 2 then
@@ -78,11 +78,11 @@ function adapter_spac(param_tables)
   end
 end
 -- адаптер который по изменению значения с устройства изменяет значение в ЧМИ для заземляющих ножей
-function adapter_zn(param_tables)
-  zn_name = param_tables[1]
-  hmi_zn_name = param_tables[2]
-  zn_signal = param_tables[3]
-  hmi_zn_signal = param_tables[4]
+local function adapter_zn(param_tables)
+  local zn_name = param_tables[1]
+  local hmi_zn_name = param_tables[2]
+  local zn_signal = param_tables[3]
+  local hmi_zn_signal = param_tables[4]
   
   Core[hmi_zn_name..hmi_zn_signal] = Core[zn_name..zn_signal]
   if zn_signal == "Value" then
@@ -94,11 +94,11 @@ function adapter_zn(param_tables)
   end
 end
 -- адаптер который по изменению значения с устройства изменяет значение в ЧМИ для тележки 
-function adapter_truck(param_tables)
-  truck_name = param_tables[1]
-  hmi_truck_name = param_tables[2]
-  truck_signal = param_tables[3]
-  hmi_truck_signal = param_tables[4]
+local function adapter_truck(param_tables)
+  local truck_name = param_tables[1]
+  local hmi_truck_name = param_tables[2]
+  local truck_signal = param_tables[3]
+  local hmi_truck_signal = param_tables[4]
   
   Core[hmi_truck_name..hmi_truck_signal] = Core[truck_name..truck_signal]
   if truck_signal == "Value" then

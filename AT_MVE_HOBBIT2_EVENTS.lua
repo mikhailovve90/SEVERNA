@@ -12,8 +12,9 @@ local ScreenID_KOT="KOTELNAYA"
 local ObjID = "Hobbit2_params."
 local sig_source = "Хоббит 2" 
 local time_source = "(Сервер)" 
-local DRFlag = Core["HOBBIT2_DS_DP"]
-local old_DRFlag = DRFlag 
+DRFlag = Core["HOBBIT2_DS_DP"]
+old_DRFlag = DRFlag 
+
 local TagList={ 
   "CH1_FLT",
   "CH1_NEG",

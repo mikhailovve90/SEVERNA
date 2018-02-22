@@ -12,8 +12,8 @@ local ScreenID_KOT="KOTELNAYA"
 local ObjID = "RAW_BOILERROOM_"
 local sig_source = "АСУ Э Котельная " 
 local time_source = "(Сервер)" 
-local DRFlag = Core["RAW_BOILER_UP_ST.STATUS_DEVICE"]
-local old_DRFlag = DRFlag 
+DRFlag = Core["RAW_BOILER_UP_ST.STATUS_DEVICE"]
+old_DRFlag = DRFlag 
 local TagList={ 
   "BOILER1_ALARM",
   "BOILER2_ALARM",

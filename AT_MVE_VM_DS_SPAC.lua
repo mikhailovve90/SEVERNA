@@ -1,5 +1,5 @@
-DS=30100
-AS=10000
+local DS=30100
+local AS=10000
 
 local Log=true 
 local time_source ="(Сервер)"
@@ -30,14 +30,14 @@ local function Add_DS_Event(signal)
   end 
 end 
 
-spac_prefix = "SPAC_"
+local spac_prefix = "SPAC_"
 
-spacs_list = {"VV1_803.", "VV2_803.", "SV_803.",
+local spacs_list = {"VV1_803.", "VV2_803.", "SV_803.",
              "1_1_803.", "1_6_803.", "1_12_803.",
              "2_6_803.", "2_8_803.", "2_11_803.",
              "2_17_803.", "1_3_803."}
 
-spac_source = {
+local spac_source = {
 ["VV1_803."] = "ЗРУ 10кВ Ввод1",
 ["VV2_803."] = "ЗРУ 10кВ Ввод2",
 ["SV_803."] = "ЗРУ 10кВ Секционный выключатель",
@@ -51,10 +51,10 @@ spac_source = {
 ["1_3_803."] = "ЗРУ 10кВ Ячейка 1_3"
 }
           
-spac_status_signal = {"RAW_SPAC_L2210_DEVICE1_STATUS"}
+local spac_status_signal = {"RAW_SPAC_L2210_DEVICE1_STATUS"}
                      --"RAW_SPAC_4D28_DEVICE1_STATUS"}
 
-EDB = 
+local EDB = 
 {
   ["msg"]={
 --[[ ["Сигнал с измерительного модуля TS1(срабатывание пускового токового органа защиты шин)(0-неактивный,1-активный) "]="KSSEV_ZRU",

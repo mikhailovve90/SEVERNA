@@ -12,8 +12,9 @@ local ScreenID_KOT="VOS"
 local ObjID = "VOS_SK712_CONTROL_PUMPS."
 local sig_source = "АСУ Э ВОС" 
 local time_source = "" 
-local DRFlag = Core["RAW_SK712_1_UP_ST.STATUS_DEVICE"]
-local old_DRFlag = DRFlag 
+DRFlag = Core["RAW_SK712_1_UP_ST.STATUS_DEVICE"]
+old_DRFlag = DRFlag 
+
 local TagList={ 
   "E_0_0",
   "E_0_1",

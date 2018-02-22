@@ -1,18 +1,18 @@
 -- Код для записи уставок, а так же записи текущих считанных уставок в регистры для записи.
 
-write_prefix = "_WR"
-raw_prefix = "RAW_"
-prefix_update_signal = "UPDATE_WRITE_HOLDING_REG"
-prefix_struct_modbus = "_UP_ST."
+local write_prefix = "_WR"
+local raw_prefix = "RAW_"
+local prefix_update_signal = "UPDATE_WRITE_HOLDING_REG"
+local prefix_struct_modbus = "_UP_ST."
                     
 
-signals_on_write = {"WRITE_SETTINGS_ELIM1",
+local signals_on_write = {"WRITE_SETTINGS_ELIM1",
                     "WRITE_SETTINGS_ELIM2"}
                     
-rewrite_signals_on_write = {"REWRITE_READ_SETTINGS_IN_WR_REG_ELIM1",
+local rewrite_signals_on_write = {"REWRITE_READ_SETTINGS_IN_WR_REG_ELIM1",
                             "REWRITE_READ_SETTINGS_IN_WR_REG_ELIM2"}
 
-signals_elim = {
+local signals_elim = {
     ["_ADDR"] = {["Comment"]= "ЭЛИМ Устройство 1 Адрес устройства в модбас сети 0..255"},
     ["_PORT_SP"] = {["Comment"]= "ЭЛИМ Устройство 1 Скорость обмена по модбас 1-5 : 1-9600, 2-19200, 3-38400, 4-57600, 5-115200"},
     ["_UST_U_I"] = {["Comment"]= "ЭЛИМ Устройство 1 Уставки по току и напряжению 0-11 : 0-U27,5 I30,0;1-U55,0 I15,0;2-U60,0 I30,0;3-U30,0 I90,0;4-U110 I7,5;6-U220 I3,8;7-U330 I2,5;8-U440 I1,9;9-U550 I1,5;10-U660 I1,2;11-Свои"},
@@ -28,7 +28,7 @@ signals_elim = {
 }
 
 -- Функция для инициализации уставок текущими значениями этих уставок
-function rewrite_read_settings(rewrite_signal)
+local function rewrite_read_settings(rewrite_signal)
   if Core[rewrite_signal[1]] == true then
     elim_prefix = rewrite_signal[1]:sub(-5) -- у принятого сигнала обезаем последние 5 символов что даёт нам идентефикатор устройства
     
@@ -41,7 +41,7 @@ function rewrite_read_settings(rewrite_signal)
 end
 
 -- Функция для обновления сигнала на запись( посылает сигнал обновления в драйвер сигнала управления )
-function update_write_holding(write_signal)
+local function update_write_holding(write_signal)
   elim_prefix = write_signal[1]:sub(-5)
   
   if Core[raw_prefix..elim_prefix..prefix_struct_modbus..prefix_update_signal] == false then

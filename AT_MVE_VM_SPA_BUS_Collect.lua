@@ -1,4 +1,4 @@
-device_prefix = {"SPAC_VV1_803.", "SPAC_VV2_803.", "SPAC_SV_803."}
+local device_prefix = {"SPAC_VV1_803.", "SPAC_VV2_803.", "SPAC_SV_803."}
 
 
 local update_signal = {
@@ -8,7 +8,7 @@ local update_signal = {
 "RAW_SPAC_4D28_READ_INPUT_AND_OTPUT_UPDATE"
 }
 
-function update_up(name)
+local function update_up(name)
   Core[name] = true
 end
 
@@ -18,7 +18,7 @@ end
   end
 end--]]
 
-cnt_up = 0
+local cnt_up = 0
 for i = 1, #device_prefix, 1 do
   for j = 1, #update_signal, 1 do
     cnt_up=cnt_up+1

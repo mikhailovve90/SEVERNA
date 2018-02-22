@@ -12,7 +12,7 @@ local ScreenID_KOT="KOS"
 local ObjID = {"RIDUS."}
 local sig_source="АСУ Э ВТЗП " 
 local time_source = "(Сервер)" 
-local old_DRFlag = {["RAW_RIDUS_ST_UP.STATUS_DEVICE"] = Core["RAW_RIDUS_ST_UP.STATUS_DEVICE"]}
+old_DRFlag = {["RAW_RIDUS_ST_UP.STATUS_DEVICE"] = Core["RAW_RIDUS_ST_UP.STATUS_DEVICE"]}
  
 local TagList={ 
   "QR1_AVAR",

@@ -11,7 +11,7 @@ local objects = {
 
 local signals = {
   ["CH1_STATE_WORD"] = {["Comment"]="Слово-состояния канала №1 устройства", ["eval"] = function(Name) 
-                                                                                         hobbit_state_bits = byte_to_bool(Core[Name[1].."CH1_STATE_WORD"], 7)
+                                                                                         local hobbit_state_bits = byte_to_bool(Core[Name[1].."CH1_STATE_WORD"], 7)
                                                                                          Core[Name[2].."CH1_ACT"] = hobbit_state_bits[8]
                                                                                          Core[Name[2].."CH1_FLT"] = hobbit_state_bits[7]
                                                                                          Core[Name[2].."CH1_RED"] = hobbit_state_bits[5]
@@ -22,7 +22,7 @@ local signals = {
                                                                                        end },
   
   ["CH2_STATE_WORD"] = {["Comment"]="Слово-состояния канала №2 устройства", ["eval"] = function(Name) 
-                                                                                         hobbit_state_bits = byte_to_bool(Core[Name[1].."CH2_STATE_WORD"], 7)
+                                                                                         local hobbit_state_bits = byte_to_bool(Core[Name[1].."CH2_STATE_WORD"], 7)
                                                                                          Core[Name[2].."CH2_ACT"] = hobbit_state_bits[8]
                                                                                          Core[Name[2].."CH2_FLT"] = hobbit_state_bits[7]
                                                                                          Core[Name[2].."CH2_RED"] = hobbit_state_bits[5]
@@ -33,7 +33,7 @@ local signals = {
                                                                                        end },
                                                                                        
   ["CH3_STATE_WORD"] = {["Comment"]="Слово-состояния канала №3 устройства", ["eval"] = function(Name) 
-                                                                                         hobbit_state_bits = byte_to_bool(Core[Name[1].."CH3_STATE_WORD"], 7)
+                                                                                         local hobbit_state_bits = byte_to_bool(Core[Name[1].."CH3_STATE_WORD"], 7)
                                                                                          Core[Name[2].."CH3_ACT"] = hobbit_state_bits[8]
                                                                                          Core[Name[2].."CH3_FLT"] = hobbit_state_bits[7]
                                                                                          Core[Name[2].."CH3_RED"] = hobbit_state_bits[5]
@@ -44,7 +44,7 @@ local signals = {
                                                                                        end },
 
   ["CH4_STATE_WORD"] = {["Comment"]="Слово-состояния канала №4 устройства", ["eval"] = function(Name) 
-                                                                                         hobbit_state_bits = byte_to_bool(Core[Name[1].."CH4_STATE_WORD"], 7)
+                                                                                         local hobbit_state_bits = byte_to_bool(Core[Name[1].."CH4_STATE_WORD"], 7)
                                                                                          Core[Name[2].."CH4_ACT"] = hobbit_state_bits[8]
                                                                                          Core[Name[2].."CH4_FLT"] = hobbit_state_bits[7]
                                                                                          Core[Name[2].."CH4_RED"] = hobbit_state_bits[5]

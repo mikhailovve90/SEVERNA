@@ -12,8 +12,8 @@ local ScreenID_KOT="KOTELNAYA"
 local ObjID = "UPS_ELIM2."
 local sig_source="АСУ Э Аккумуляторная Элим 2" 
 local time_source = "(Сервер)" 
-local DRFlag = Core["RAW_ELIM2_UP_ST.STATUS_DEVICE"]
-local old_DRFlag = DRFlag
+DRFlag = Core["RAW_ELIM2_UP_ST.STATUS_DEVICE"]
+old_DRFlag = DRFlag
  
 local TagList={ 
   "OGR_I",

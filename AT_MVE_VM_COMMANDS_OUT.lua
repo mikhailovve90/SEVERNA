@@ -1,14 +1,14 @@
 -- Команды на СПАК
 
-outs = "RAW_SPAC_L2210_SIG_BLOCK_VIHOD1_DP"
-allow_reg = "RAW_SPAC_L2210_UPR_BLOCK_VIHOD1_DP"
-cat = 100
+local outs = "RAW_SPAC_L2210_SIG_BLOCK_VIHOD1_DP"
+local allow_reg = "RAW_SPAC_L2210_UPR_BLOCK_VIHOD1_DP"
+local cat = 100
 
-list_device_prefix = {"SPAC_VV1_803.", "SPAC_VV2_803.", "SPAC_SV_803.",
+local list_device_prefix = {"SPAC_VV1_803.", "SPAC_VV2_803.", "SPAC_SV_803.",
                      "SPAC_1_1_803.", "SPAC_1_6_803.", "SPAC_1_12_803.", 
                      "SPAC_2_6_803.", "SPAC_2_8_803.", "SPAC_2_11_803.", "SPAC_2_17_803.", "SPAC_1_3_803."}
                      
-spac_source = {
+local spac_source = {
 ["SPAC_VV1_803."] = "ЗРУ 10кВ Ввод1",
 ["SPAC_VV2_803."] = "ЗРУ 10кВ Ввод2",
 ["SPAC_SV_803."] = "ЗРУ 10кВ Секционный выключатель",
@@ -22,18 +22,18 @@ spac_source = {
 ["SPAC_1_3_803."] = "ЗРУ 10кВ Ячейка 1_3"
 }
                      
-allow_signal = "UPDATE_WRITE_ALLOWS_OUT"
-write_signal_on = "UPDATE_WRITE_COMMAND_VKL"
-write_signal_off = "UPDATE_WRITE_COMMAND_VIKL"
-read_signal = "UPDATE_READ_OUTS_AND_ALLOWS"
-read_allow_scada = "READ_ALLOW_SCADA"
+local allow_signal = "UPDATE_WRITE_ALLOWS_OUT"
+local write_signal_on = "UPDATE_WRITE_COMMAND_VKL"
+local write_signal_off = "UPDATE_WRITE_COMMAND_VIKL"
+local read_signal = "UPDATE_READ_OUTS_AND_ALLOWS"
+local read_allow_scada = "READ_ALLOW_SCADA"
 
-external_vikl = "VIKL_VIKL"
-external_vkl = "VKL_VIKL"
-get_permit = "ALLOW_GET"
-pick_up_permit = "ALLOW_PICK_UP"
-
-function read_allow_rpv_rpo(device_prefix)
+local external_vikl = "VIKL_VIKL"
+local external_vkl = "VKL_VIKL"
+local get_permit = "ALLOW_GET"
+local pick_up_permit = "ALLOW_PICK_UP"
+ 
+local function read_allow_rpv_rpo(device_prefix)
   if Core[device_prefix[1]..read_signal] == false then
     Core[device_prefix[1]..read_signal] = true
   else
@@ -43,7 +43,7 @@ function read_allow_rpv_rpo(device_prefix)
   Core[device_prefix[1]..read_allow_scada] = false
 end
 
-function permit_on(device_prefix)
+local function permit_on(device_prefix)
   if Core[device_prefix[1]..get_permit] == true then
 -- Даём разрешение на изменение выходных состояний 
     if Core[device_prefix[1]..allow_reg] == 0 then
@@ -66,7 +66,7 @@ function permit_on(device_prefix)
   read_allow_rpv_rpo(device_prefix)
 end
 
-function permit_off(device_prefix)
+local function permit_off(device_prefix)
   if Core[device_prefix[1]..pick_up_permit] == true then
 -- Забираем разрешение на изменение выходных состояний 
     if Core[device_prefix[1]..allow_reg] == 1 then
@@ -90,7 +90,7 @@ function permit_off(device_prefix)
   read_allow_rpv_rpo(device_prefix)
 end
 
-function switch_on(device_prefix)
+local function switch_on(device_prefix)
   if Core[device_prefix[1]..external_vkl] == true then
     -- Записываем на выход отвечающий за включение еденицу
     if Core[device_prefix[1]..outs.."[3]"] == 0 then
@@ -138,7 +138,7 @@ function switch_on(device_prefix)
   Core[device_prefix[1]..external_vkl] = false
 end
 
-function switch_off(device_prefix)
+local function switch_off(device_prefix)
   if Core[device_prefix[1]..external_vikl] == true then
     -- Записываем на выход отвечающий за выключение еденицу
     if Core[device_prefix[1]..outs.."[2]"] == 0 then

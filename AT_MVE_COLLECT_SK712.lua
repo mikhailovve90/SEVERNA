@@ -1,4 +1,4 @@
-prefix_struct_modbus = "RAW_SK712_1_UP_ST"
+local prefix_struct_modbus = "RAW_SK712_1_UP_ST"
 
 
 local update_signal = {

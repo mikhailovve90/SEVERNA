@@ -11,7 +11,7 @@ local objects = {
 -- зависимости от содержания сигнала с устройства(см. карту адресов устройства)
 local signals = {	
     ["FRQ_RDYK"] = {["Comment"]="Готовность насосов бит 0-2, Частота в ручном режиме бит 8-15", ["eval"] = function(Name)
-                                                                                                             ready_bits = byte_to_bool(Core[Name[1].."FRQ_RDYK"], 2)
+                                                                                                             local ready_bits = byte_to_bool(Core[Name[1].."FRQ_RDYK"], 2)
                                                                                                              Core[Name[2].."PUMP1_READY"] = ready_bits[1]
                                                                                                              Core[Name[2].."PUMP2_READY"] = ready_bits[2]
                                                                                                              Core[Name[2].."PUMP3_READY"] = ready_bits[3]
@@ -21,7 +21,7 @@ local signals = {
                                                                                                            end },
                                                                                                           
     ["RUN_PERR"] = {["Comment"]="Обобщённая неисправность насосов бит 0-2, работа насосов бит 8-13", ["eval"] = function(Name)
-                                                                                                                  fault_run_pumps_bits = byte_to_bool(Core[Name[1].."RUN_PERR"], 12)
+                                                                                                                  local fault_run_pumps_bits = byte_to_bool(Core[Name[1].."RUN_PERR"], 12)
                                                                                                                   Core[Name[2].."PUMP1_WORK"] = fault_run_pumps_bits[9]
                                                                                                                   Core[Name[2].."PUMP2_WORK"] = fault_run_pumps_bits[10]
                                                                                                                   Core[Name[2].."PUMP3_WORK"] = fault_run_pumps_bits[11]
@@ -32,7 +32,7 @@ local signals = {
                                                                                                                 end },
     
     ["RDY_CONN"] = {["Comment"]="Контроллер насоса отвечает на запросы, состояние насосов бит 8-13", ["eval"] = function(Name)
-                                                                                                                  conn_rda_pumps_bits = byte_to_bool(Core[Name[1].."RDY_CONN"], 12)
+                                                                                                                  local conn_rda_pumps_bits = byte_to_bool(Core[Name[1].."RDY_CONN"], 12)
                                                                                                                   Core[Name[2].."PUMP1_ANSW_REQ"] = conn_rda_pumps_bits[1]
                                                                                                                   Core[Name[2].."PUMP2_ANSW_REQ"] = conn_rda_pumps_bits[2]
                                                                                                                   Core[Name[2].."PUMP3_ANSW_REQ"] = conn_rda_pumps_bits[3]
@@ -43,7 +43,7 @@ local signals = {
                                                                                                                 end },
     
     ["STAT_INPS"] = {["Comment"]="Состояние диск. входов бит 0-5, слово сосотояние системы бит 11-15", ["eval"] = function(Name)
-                                                                                                               di_stat_bits = byte_to_bool(Core[Name[1].."STAT_INPS"], 15)
+                                                                                                               local di_stat_bits = byte_to_bool(Core[Name[1].."STAT_INPS"], 15)
                                                                                                                Core[Name[2].."DI_IN0"] = di_stat_bits[1]
                                                                                                                Core[Name[2].."DI_IN1"] = di_stat_bits[2]
                                                                                                                Core[Name[2].."DI_IN2"] = di_stat_bits[3]
@@ -61,7 +61,7 @@ local signals = {
     ["PRESS"] = {["Comment"]="Давление/уровень 1ед 0.01 бар", ["eval"] = function(Name) Core[Name[2].."PRESS"] = Core[Name[1].."PRESS"] * 0.01 end },
     
     ["ER0X"] = {["Comment"]="Слово состояния ошибок системы", ["eval"] = function(Name) 
-                                                                           er0x_bits = byte_to_bool(Core[Name[1].."ER0X"], 7)
+                                                                           local er0x_bits = byte_to_bool(Core[Name[1].."ER0X"], 7)
                                                                            Core[Name[2].."E_0_0"] = er0x_bits[1]
                                                                            Core[Name[2].."E_0_1"] = er0x_bits[2]
                                                                            Core[Name[2].."E_0_2"] = er0x_bits[3]
@@ -73,7 +73,7 @@ local signals = {
                                                                          end },
                                                                       
     ["ER1X"] = {["Comment"]="Слово состояния ошибок насоса 1", ["eval"] = function(Name) 
-                                                                            er1x_bits = byte_to_bool(Core[Name[1].."ER1X"], 7)
+                                                                            local er1x_bits = byte_to_bool(Core[Name[1].."ER1X"], 7)
                                                                             Core[Name[2].."E_1_0"] = er1x_bits[1]
                                                                             Core[Name[2].."E_1_1"] = er1x_bits[2]
                                                                             Core[Name[2].."E_1_2"] = er1x_bits[3]
@@ -85,7 +85,7 @@ local signals = {
                                                                           end },
                                                                       
     ["ER2X"] = {["Comment"]="Слово состояния ошибок насоса 2", ["eval"] = function(Name) 
-                                                                            er2x_bits = byte_to_bool(Core[Name[1].."ER2X"], 7)
+                                                                            local er2x_bits = byte_to_bool(Core[Name[1].."ER2X"], 7)
                                                                             Core[Name[2].."E_2_0"] = er2x_bits[1]
                                                                             Core[Name[2].."E_2_1"] = er2x_bits[2]
                                                                             Core[Name[2].."E_2_2"] = er2x_bits[3]
@@ -97,7 +97,7 @@ local signals = {
                                                                           end },
     
     ["ER3X"] = {["Comment"]="Слово состояния ошибок насоса 3", ["eval"] = function(Name) 
-                                                                            er3x_bits = byte_to_bool(Core[Name[1].."ER3X"], 7)
+                                                                            local er3x_bits = byte_to_bool(Core[Name[1].."ER3X"], 7)
                                                                             Core[Name[2].."E_3_0"] = er3x_bits[1]
                                                                             Core[Name[2].."E_3_1"] = er3x_bits[2]
                                                                             Core[Name[2].."E_3_2"] = er3x_bits[3]
@@ -109,7 +109,7 @@ local signals = {
                                                                           end },
                                                                       
     ["ER7X"] = {["Comment"]="Слово состояния ошибок поплавков", ["eval"] = function(Name) 
-                                                                             er7x_bits = byte_to_bool(Core[Name[1].."ER7X"], 7)
+                                                                             local er7x_bits = byte_to_bool(Core[Name[1].."ER7X"], 7)
                                                                              Core[Name[2].."E_7_0"] = er7x_bits[1]
                                                                              Core[Name[2].."E_7_1"] = er7x_bits[2]
                                                                              Core[Name[2].."E_7_2"] = er7x_bits[3]
@@ -121,7 +121,7 @@ local signals = {
                                                                            end },
                                                                       
     ["P1_STAT"] = {["Comment"]="Слово состояния насоса 1", ["eval"] = function(Name) 
-                                                                        p1_status_bits = byte_to_bool(Core[Name[1].."P1_STAT"], 15)
+                                                                        local p1_status_bits = byte_to_bool(Core[Name[1].."P1_STAT"], 15)
                                                                         Core[Name[2].."P1_MANUAL_MODE"] = p1_status_bits[10]
                                                                         Core[Name[2].."P1_FREQ_CONTROL"] = p1_status_bits[11]
                                                                         Core[Name[2].."P1_WORK"] = p1_status_bits[12]
@@ -145,7 +145,7 @@ local signals = {
     ["P1_HRS"] = {["Comment"]="Счетчик моточасов насоса No1(1 ед. = 10 часов)", ["eval"] = function(Name) Core[Name[2].."P1_HRS"] = Core[Name[1].."P1_HRS"] end },
 
     ["P2_STAT"] = {["Comment"]="Слово состояния насоса 1", ["eval"] = function(Name) 
-                                                                        p2_status_bits = byte_to_bool(Core[Name[1].."P2_STAT"], 15)
+                                                                        local p2_status_bits = byte_to_bool(Core[Name[1].."P2_STAT"], 15)
                                                                         Core[Name[2].."P2_MANUAL_MODE"] = p2_status_bits[10]
                                                                         Core[Name[2].."P2_FREQ_CONTROL"] = p2_status_bits[11]
                                                                         Core[Name[2].."P2_WORK"] = p2_status_bits[12]
@@ -169,7 +169,7 @@ local signals = {
     ["P2_HRS"] = {["Comment"]="Счетчик моточасов насоса No1(1 ед. = 10 часов)", ["eval"] = function(Name) Core[Name[2].."P2_HRS"] = Core[Name[1].."P2_HRS"] end },
 
     ["P3_STAT"] = {["Comment"]="Слово состояния насоса 1", ["eval"] = function(Name) 
-                                                                        p3_status_bits = byte_to_bool(Core[Name[1].."P3_STAT"], 15)
+                                                                        local p3_status_bits = byte_to_bool(Core[Name[1].."P3_STAT"], 15)
                                                                         Core[Name[2].."P3_MANUAL_MODE"] = p3_status_bits[10]
                                                                         Core[Name[2].."P3_FREQ_CONTROL"] = p3_status_bits[11]
                                                                         Core[Name[2].."P3_WORK"] = p3_status_bits[12]

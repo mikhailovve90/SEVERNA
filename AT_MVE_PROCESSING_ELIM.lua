@@ -22,7 +22,7 @@ local signals = {
     ["MLT_U"] = {["Comment"]="Мультипликативная поправка по напряжению", ["eval"] = function(Name) Core[Name[2].."MLT_U"] = Core[Name[1].."MLT_U"] end },
     ["UST_U_I"] = {["Comment"]="Уставка по току и напряжению", ["eval"] = function(Name) Core[Name[2].."UST_U_I"] = Core[Name[1].."UST_U_I"] end },
     ["EVENT"] = {["Comment"]="Регистр событий элим", ["eval"] = function(Name)
-                                                                  elim_events_bits = byte_to_bool(Core[Name[1].."EVENT"], 7)
+                                                                  local elim_events_bits = byte_to_bool(Core[Name[1].."EVENT"], 7)
                                                                   Core[Name[2].."OGR_I"] = elim_events_bits[1]
                                                                   Core[Name[2].."OGR_U"] = elim_events_bits[2]
                                                                   Core[Name[2].."STANBY"] = elim_events_bits[3]

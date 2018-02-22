@@ -1,4 +1,4 @@
-prefix = {"RAW_HOBBIT1_",
+local prefix = {"RAW_HOBBIT1_",
           "RAW_HOBBIT2_"}
 
 

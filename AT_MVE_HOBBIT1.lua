@@ -1,14 +1,14 @@
 require "./lua_lib/crc16_ansi"
 require "./lua_lib/acs_data_lib"
 
-update_signal = "RAW_HOBBIT1_UPDATE"
-PORT_CONNECT_ERROR = 10
-port = nil
-msg = {0x21}
-pref_msg = {0x7e, 0x01}
-bad_answer_count = 0
+local update_signal = "RAW_HOBBIT1_UPDATE"
+local PORT_CONNECT_ERROR = 10
+local port = nil
+local msg = {0x21}
+local pref_msg = {0x7e, 0x01}
+local bad_answer_count = 0
 -- таблица состояний каналов
-raw_state_signal = {
+local raw_state_signal = {
   "RAW_HOBBIT1_CH1_STATE_WORD",
   "RAW_HOBBIT1_CH2_STATE_WORD",
   "RAW_HOBBIT1_CH3_STATE_WORD",
@@ -16,7 +16,7 @@ raw_state_signal = {
 }
 
 -- таблица концентраций
-raw_concentrate_signal = {
+local raw_concentrate_signal = {
   "RAW_HOBBIT1_CH1_CONCENTRATE",
   "RAW_HOBBIT1_CH2_CONCENTRATE",
   "RAW_HOBBIT1_CH3_CONCENTRATE",
@@ -24,7 +24,7 @@ raw_concentrate_signal = {
 }
 
 -- Функция для связи с ком портом
-function com_connect()
+local function com_connect()
   port = SerialPort.new("COM5", 9600, 8, 1, "NONE")
   
 -- Если порт не открылся, то сообщение в лог и выход из программы
@@ -34,19 +34,19 @@ function com_connect()
   end  
 end
 
-function close_port_on_reserve(id_port)
+local function close_port_on_reserve(id_port)
   id_port:close()
 end
 
 -- Функция которая выполняющая запрос на устройство
-function processing(req_info)
+local function processing(req_info)
   while(Core['@RESERVE'] == true) do
     close_port_on_reserve(port)
     Core.addLogMsg("Порт закрыт, узел в резерве")
   end
   
   if Core[update_signal] == true then -- Если есть команда на запрос выполнить запрос и записать результат в переменную
-    answer = request_on_port(request_for_port(req_info[1], req_info[2]))-- выполнение запроса выполняется функцией request_for_port(req_info[1], req_info[2]), где req_info[1] - стандартные байты префикса сообщения, req_info[2] - тело сообщения
+    local answer = request_on_port(request_for_port(req_info[1], req_info[2]))-- выполнение запроса выполняется функцией request_for_port(req_info[1], req_info[2]), где req_info[1] - стандартные байты префикса сообщения, req_info[2] - тело сообщения
     if answer[2] == "bad" then
       port:clearBuffers()
       Core.addLogMsg("Error read data")
@@ -68,7 +68,7 @@ function processing(req_info)
   end
  
   -- Считаем CRC пришедшего пакета
-  validation = answer[1]:sub(3, -3)
+  local validation = answer[1]:sub(3, -3)
   validation = string_to_byte(validation)
   validation = count_crc(validation)
   
@@ -76,7 +76,7 @@ function processing(req_info)
   if deepcompare(validation, string_to_byte(answer[1]:sub(-2))) then
     -- Core.addLogMsg("it looking good")
     bad_answer_count = 0
-    unpackage_answer = unpackage(answer[1])
+    local unpackage_answer = unpackage(answer[1])
     -- Запись полученных значений в переменные  
     write_on_variables(unpackage_answer)
     
@@ -92,9 +92,9 @@ function processing(req_info)
 end
 
 -- формирование посылки для отправки на порт
-function request_for_port(pref_msg, msg)
-  loc_pref_msg = assigument_of_array(pref_msg)
-  loc_msg = assigument_of_array(msg)
+local function request_for_port(pref_msg, msg)
+  local loc_pref_msg = assigument_of_array(pref_msg)
+  local loc_msg = assigument_of_array(msg)
   -- Прибавление к префиксу посылки самого тела посылки 
   for _, value in ipairs(loc_msg) do
     table.insert(loc_pref_msg, value)
@@ -106,7 +106,7 @@ function request_for_port(pref_msg, msg)
   end
 
   -- Формирование посылки на отправку 
-  request = ""
+  local request = ""
   for _, value in ipairs(loc_pref_msg) do
     request = request..string.char(value)
   end
@@ -115,14 +115,14 @@ function request_for_port(pref_msg, msg)
 end
 
 -- Отправка запроса на порт, возвращает ответ
-function request_on_port(request)
+local function request_on_port(request)
   local success = "bad"  -- Переменная для подтверждения статуса запроса
   local answer = nil  -- ответ от устройства
   port:send(string.char(0x0f)) -- Согласно протокола отправляем на устройство байт 0x0f
   os.sleep(0.1)
   
-  count_bytes = port:recvBytesAvailable()
-  accept_answer = port:recv(count_bytes)
+  local count_bytes = port:recvBytesAvailable()
+  local accept_answer = port:recv(count_bytes)
   if accept_answer == nil then
     return {0, "bad"}
   end
@@ -148,21 +148,22 @@ function request_on_port(request)
         return {0, 10}
       end]]
   end
+  port:clearBuffers()
   return {answer, success}  
 end
 
 -- Разбор посылки
-function unpackage(pack)
+local function unpackage(pack)
   if #pack == 8 then 
   end
 
   if #pack > 8 then--Если пришла посылка с состоянием нескольких канало
-    byte_7E = string.byte(pack, 1)
-    data_size = string.byte(pack, 2)
-    data_type = string.byte(pack, 3)
-    channel_amount = string.byte(pack, 4)
+    local byte_7E = string.byte(pack, 1)
+    local data_size = string.byte(pack, 2)
+    local data_type = string.byte(pack, 3)
+    local channel_amount = string.byte(pack, 4)
     
-    channnel_params = channel_info(string.sub(pack, 5, #pack - 2))
+    local channnel_params = channel_info(string.sub(pack, 5, #pack - 2))
     return {byte_7E, data_size, data_type, channel_amount, channnel_params}
   end
 end
@@ -170,11 +171,11 @@ end
 -- Достаём из посылки сведения и концентрацию по каждому каналу,
 -- функция принимает пакет из которого убраны символы не относящиеся
 -- к данным каналов(а)
-function channel_info(byte_channel_info)
-  channel_state = {} -- Массив состояний канала на каждый индекс приходится по состоянию одного канала(если канал один то массив из одного элемента)
-  concentration = {{}} -- Двухмерный массив для значений концентрации, в каждом элементе массива находиться четыре байта данных
-  count_for_byte = 1 -- Вспомогательная переменная для записи концентрации в массив побайтно
-  count_for_state = 1 -- Вспомогательная переменная для записи состояний в массив
+local function channel_info(byte_channel_info)
+  local channel_state = {} -- Массив состояний канала на каждый индекс приходится по состоянию одного канала(если канал один то массив из одного элемента)
+  local concentration = {{}} -- Двухмерный массив для значений концентрации, в каждом элементе массива находиться четыре байта данных
+  local count_for_byte = 1 -- Вспомогательная переменная для записи концентрации в массив побайтно
+  local count_for_state = 1 -- Вспомогательная переменная для записи состояний в массив
   
   for i = 1, #byte_channel_info, 5 do -- Цикл для записи значений в массивы
     channel_state[count_for_state] = string.byte(byte_channel_info, i) -- Запись в массив состояний байта состояния, в случае посылки больше чем из одного канала, каждый пятый байт является состоянием каждого следующего канала
@@ -193,7 +194,7 @@ function channel_info(byte_channel_info)
 end
 
 -- Функция для записи посылки в переменные
-function write_on_variables(data_pack)
+local function write_on_variables(data_pack)
   for i = 1, #data_pack[5][1] do 
     Core[raw_state_signal[i]] = data_pack[5][1][i]
     Core[raw_concentrate_signal[i]] = array_byte_to_int(data_pack[5][2][i],true)

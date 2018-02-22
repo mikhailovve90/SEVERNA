@@ -5,22 +5,22 @@ require "./lua_lib/acs_data_lib"
 
 
 -- Здесь массив в который нужно добавить устройство, для работы с его уставками
-group_prefix = {"SPAC_VV1_803.","SPAC_VV2_803.", "SPAC_SV_803.", 
+local group_prefix = {"SPAC_VV1_803.","SPAC_VV2_803.", "SPAC_SV_803.", 
                "SPAC_1_1_803.", "SPAC_1_6_803.", "SPAC_1_12_803.", "SPAC_1_3_803.", 
                "SPAC_2_6_803.", "SPAC_2_8_803.", "SPAC_2_11_803.", "SPAC_2_17_803."}
 
-write_prefix = "_WRITE_"
-read_prefix = "_READ_"
-raw_prefix = "RAW_SPAC"
-signal_on_write_L2210 = "_L2210_WRITE_UST_UPDATE"
-signal_on_write_4D28 = "_4D28_WRITE_UST_UPDATE"
-signal_on_read_L2210 = "_L2210_READ_UST_UPDATE"
-signal_on_read_4D28 = "_4D28_READ_UST_UPDATE"
-signals_on_write = "_WRITE_SETTINGS"
-rewrite_signals_on_write = "_REWRITE_READ_SETTINGS_IN_WR_REG"
+local write_prefix = "_WRITE_"
+local read_prefix = "_READ_"
+local raw_prefix = "RAW_SPAC"
+local signal_on_write_L2210 = "_L2210_WRITE_UST_UPDATE"
+local signal_on_write_4D28 = "_4D28_WRITE_UST_UPDATE"
+local signal_on_read_L2210 = "_L2210_READ_UST_UPDATE"
+local signal_on_read_4D28 = "_4D28_READ_UST_UPDATE"
+local signals_on_write = "_WRITE_SETTINGS"
+local rewrite_signals_on_write = "_REWRITE_READ_SETTINGS_IN_WR_REG"
 
 -- Массив со всеми уставками устройств СПАК
-settings_803 = {
+local settings_803 = {
     "L2210_TIME_UROV",
     "L2210_TIME_USKOR",
     "L2210_TIME_ZASHC_SHIN",
@@ -75,7 +75,7 @@ settings_803 = {
 }
 
 -- Функция для инициализации уставок текущими значениями этих уставок
-function rewrite_read_settings(rewrite_group)
+local function rewrite_read_settings(rewrite_group)
   if Core[rewrite_group[1]..raw_prefix..rewrite_signals_on_write] == true then
     if Core[rewrite_group[1]..raw_prefix..signal_on_read_L2210] == false then
       Core[rewrite_group[1]..raw_prefix..signal_on_read_L2210] = true
@@ -111,25 +111,25 @@ function rewrite_read_settings(rewrite_group)
 end
 
 -- Функция для обновления сигнала на запись( посылает сигнал обновления в драйвер сигнала управления )
-function update_write_holding(update_group)
+local function update_write_holding(update_group)
   if Core[update_group[1]..raw_prefix..signals_on_write] == true then
 -- Собираем чекбоксы из интерфейса в единые значения которые будут записаны в регистры уставок
-    sg = bits_to_sg(update_group[1], 3, "_SG")
+    local sg = bits_to_sg(update_group[1], 3, "_SG")
     for i =1, #sg, 1 do
       Core[update_group[1]..raw_prefix..write_prefix.."L2210_SUMM_SW_SG"..i] = sg[i]
     end
     
-    sgf = bits_to_sg(update_group[1], 8, "_SGF")
+    local sgf = bits_to_sg(update_group[1], 8, "_SGF")
     for i =1, #sgf, 1 do
       Core[update_group[1]..raw_prefix..write_prefix.."4D28_SUMM_SGF"..i] = sgf[i]
     end
     
-    sgb = bits_to_sg(update_group[1], 3, "_SGB")
+    local sgb = bits_to_sg(update_group[1], 3, "_SGB")
     for i =1, #sgb, 1 do
       Core[update_group[1]..raw_prefix..write_prefix.."4D28_SUMM_SGB"..i] = sgb[i]
     end
     
-    sgr = bits_to_sg(update_group[1], 11, "_SGR")
+    local sgr = bits_to_sg(update_group[1], 11, "_SGR")
     for i =1, #sgr, 1 do
       Core[update_group[1]..raw_prefix..write_prefix.."4D28_SUMM_SGR"..i] = sgr[i]
     end
@@ -162,31 +162,31 @@ end
 
 -- Перевод числа, получаемого из регистра в массивы отдельных булевых значений
 function sg_to_bits(group)
-  sg1_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."L2210_SUMM_SW_SG1"], 7)
-  sg2_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."L2210_SUMM_SW_SG2"], 7)
-  sg3_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."L2210_SUMM_SW_SG3"], 7)
-  sgf1_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF1"], 7)
-  sgf2_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF2"], 7)
-  sgf3_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF3"], 7)
-  sgf4_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF4"], 7)
-  sgf5_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF5"], 7)
-  sgf6_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF6"], 7)
-  sgf7_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF7"], 7)
-  sgf8_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF8"], 7)
-  sgb1_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGB1"], 7)
-  sgb2_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGB2"], 7)
-  sgb3_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGB3"], 7)
-  sgr1_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR1"], 7)
-  sgr2_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR2"], 7)
-  sgr3_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR3"], 7)
-  sgr4_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR4"], 7)
-  sgr5_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR5"], 7)
-  sgr6_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR6"], 7)
-  sgr7_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR7"], 7)
-  sgr8_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR8"], 7)
-  sgr9_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR9"], 7)
-  sgr10_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR10"], 7)
-  sgr11_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR11"], 7)
+  local sg1_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."L2210_SUMM_SW_SG1"], 7)
+  local sg2_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."L2210_SUMM_SW_SG2"], 7)
+  local sg3_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."L2210_SUMM_SW_SG3"], 7)
+  local sgf1_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF1"], 7)
+  local sgf2_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF2"], 7)
+  local sgf3_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF3"], 7)
+  local sgf4_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF4"], 7)
+  local sgf5_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF5"], 7)
+  local sgf6_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF6"], 7)
+  local sgf7_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF7"], 7)
+  local sgf8_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGF8"], 7)
+  local sgb1_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGB1"], 7)
+  local sgb2_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGB2"], 7)
+  local sgb3_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGB3"], 7)
+  local sgr1_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR1"], 7)
+  local sgr2_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR2"], 7)
+  local sgr3_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR3"], 7)
+  local sgr4_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR4"], 7)
+  local sgr5_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR5"], 7)
+  local sgr6_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR6"], 7)
+  local sgr7_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR7"], 7)
+  local sgr8_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR8"], 7)
+  local sgr9_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR9"], 7)
+  local sgr10_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR10"], 7)
+  local sgr11_bool = byte_to_bool(Core[group..raw_prefix..write_prefix.."4D28_SUMM_SGR11"], 7)
   
   for i=0, #sg1_bool-1, 1 do 
     Core[group..raw_prefix.."_SG1["..i.."]"] = sg1_bool[i + 1]
@@ -219,12 +219,12 @@ end
 
 -- Переводим отдельные булевые переменные из интерфеса в готовую уставку на запись
 function bits_to_sg(group, size_group, group_sg_prefix)
-  group_sg = {}
+  local group_sg = {}
   for i = 0, size_group - 1, 1 do
     group_sg[i+1] = 0
   end
   for i = 1, size_group, 1 do
-    switch_name = group..raw_prefix..group_sg_prefix..i
+    local switch_name = group..raw_prefix..group_sg_prefix..i
     for j = 0, 7, 1 do
       group_sg[i] = group_sg[i] + bits_to_int(Core[switch_name.."["..j.."]"], j)
     end
