@@ -85,9 +85,6 @@ local function rewrite_read_settings(rewrite_group)
       Core[rewrite_group[1]..raw_prefix..signal_on_read_L2210] = true
     end
     
-    while Core[rewrite_group[1]..raw_prefix..signal_on_read_L2210] == true do
-    end
-    
     if Core[rewrite_group[1]..raw_prefix..signal_on_read_4D28] == false then
       Core[rewrite_group[1]..raw_prefix..signal_on_read_4D28] = true
     else
@@ -96,11 +93,9 @@ local function rewrite_read_settings(rewrite_group)
       Core[rewrite_group[1]..raw_prefix..signal_on_read_4D28] = true
     end
     
-    while Core[rewrite_group[1]..raw_prefix..signal_on_read_4D28] == true do
-    end
-    
 --   Присваиваем значения считанных уставок, переменным значения которых будут отправляться на запись
     for i =1 , #settings_803, 1 do
+      os.sleep(0.2)
       Core[rewrite_group[1]..raw_prefix..write_prefix..settings_803[i]] = Core[rewrite_group[1]..raw_prefix..read_prefix..settings_803[i]] -- составное имя сигнала для каждоко спака своё
     end
     

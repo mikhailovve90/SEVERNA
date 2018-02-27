@@ -32,9 +32,9 @@ end
 -- Перевод массива байт в целочисленное значение, подходит для порядка байт от младшeго к старшему, если reverse_byte == true используется обратный порядок байт например для подсчёта IEEE754
 -- Converting an array of bytes to an integer value, is suitable for the order of the byte from low to high, if reverse_byte == true uses the reverse order of bytes for example to calculate IEEE754 
 function array_byte_to_int(array, reverse_byte)
-  byte = {}
-  lsh = 0
-  int = 0
+  local byte = {}
+  local lsh = 0
+  local int = 0
 
   if reverse_byte ~= true then -- проверяем опцию для обратного порядка байт/Check the option for the reverse byte order 
     for i = #array, 1, -1 do -- проходим по массиву байт/go through an array of bytes
@@ -46,7 +46,7 @@ function array_byte_to_int(array, reverse_byte)
       int = int | byte[i] -- сложение байт в единый байт/addition of bytes into a single byte
     end
   else
-    reverse_i = 1 
+    local reverse_i = 1 
     for i = #array, 1, -1 do  -- проходим по массиву байт/go through an array of bytes
       byte[i] = array[reverse_i] << lsh -- записываем байты в новый массив в соответствиии с их разрядом, но в обратном порядке/write the bytes into a new array in accordance with their rank, but in the reverse order
       lsh = lsh + 8
@@ -64,7 +64,7 @@ end
 -- Разбиваем строку в массив байт
 -- Convert string to byte array
 function string_to_byte(str)
-  byte_arr = {}
+  local byte_arr = {}
   
   for i = 1, #str do
     local c = str:byte(i)
@@ -75,7 +75,7 @@ function string_to_byte(str)
 end
 
 function bytes_array_to_string(arr_byte)
-  str = ""
+  local str = ""
   
   for i = 1, #arr_byte, 1 do
     str = str..string.char(arr_byte[i])
@@ -87,7 +87,7 @@ end
 -- Функция для превращения байта(указанного количества бит) в побитные значения возвращаемые в виде массива булевых значений.
 -- Принимает на вход байт и количество обарабатываемых бит. Возвращает массив булевых значений, где true = 1, false = 0
 function byte_to_bool(bytes, amount_bit)
-  b = {}
+  local b = {}
   
   if type(amount_bit) ~= "number" then
     amount_bit = 1
@@ -108,17 +108,17 @@ end
 -- Функция для взятия старшего или младшего байта из слова, если case == 0 достаём младший
 function word_to_byte(word, case)
   if case == 0 then
-    small_byte = word & 0xFF
+    local small_byte = word & 0xFF
     return small_byte
   elseif case == 1 then
-    big_byte = word >> 8
+    local big_byte = word >> 8
     return big_byte
   end
 end
 
 -- Присвоение массивов
 function assigument_of_array(array)
-  assig_array = {}
+  local assig_array = {}
   
   for i = 1, #array, 1 do
     assig_array[i] = array[i]
@@ -129,6 +129,7 @@ end
 
 -- Возвращает число, на вход бит(булевое значение) и разряд
 function bits_to_int(bit, bit_capacity)
+  local number = nil
   if bit == true or bit == 1 then
     number = 1 << bit_capacity
   else

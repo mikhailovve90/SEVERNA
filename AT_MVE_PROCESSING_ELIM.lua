@@ -31,8 +31,8 @@ local signals = {
                                                                   Core[Name[2].."OVERLOAD_U"] = elim_events_bits[8]                                                                        
                                                                 end },
                                                                                                                                                  
-    ["U"] = {["Comment"]="Напряжение в еденицах 0-65535", ["eval"] = function(Name) os.sleep(1) Core[Name[2].."U"] = Core[Name[1].."ADD_U"] + ((Core[Name[1].."U"] * (Core[Name[1].."HH_U"]/10))/1023) * Core[Name[1].."MLT_U"]  end },
-    ["I"] = {["Comment"]="ТОК в еденицах 0-65535", ["eval"] = function(Name) os.sleep(1) Core[Name[2].."I"] = Core[Name[1].."ADD_I"] + ((Core[Name[1].."I"] * (Core[Name[1].."HH_I"]/10))/1023) * Core[Name[1].."MLT_I"] end }
+    ["U"] = {["Comment"]="Напряжение в еденицах 0-65535 пересчитывается в реальное", ["eval"] = function(Name) Core[Name[2].."U"] = Core[Name[1].."ADD_U"] + ((Core[Name[1].."U"] * (Core[Name[1].."HH_U"]/10))/1023) * Core[Name[1].."MLT_U"]  end },
+    ["I"] = {["Comment"]="ТОК в еденицах 0-65535 пересчитывается в реальное", ["eval"] = function(Name) Core[Name[2].."I"] = Core[Name[1].."ADD_I"] + ((Core[Name[1].."I"] * (Core[Name[1].."HH_I"]/10))/1023) * Core[Name[1].."MLT_I"] end }
 }
 
 -- Цикл для инициализации значений
